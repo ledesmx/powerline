@@ -1,0 +1,148 @@
+<section class="contact-section" id="contacto">
+	<div class="contact-copy">
+		<p class="eyebrow">Contactanos</p>
+		<h2>Activa tu siguiente proyecto electrico con un equipo que integra tecnica, suministro y seguimiento.</h2>
+		<p>
+			Atendemos necesidades de instalacion, modernizacion, ampliacion y cumplimiento para
+			proyectos que requieren una ejecucion ordenada y una respuesta clara desde el primer
+			contacto.
+		</p>
+
+		<div class="contact-actions">
+			<a class="primary-action" href="#servicios">Ver servicios</a>
+			<a class="secondary-action" href="#inicio">Volver al inicio</a>
+		</div>
+	</div>
+
+	<div class="contact-panel">
+		<div class="panel-item">
+			<strong>Diagnostico tecnico</strong>
+			<p>Levantamiento inicial para detectar alcance, capacidad y necesidades del proyecto.</p>
+		</div>
+		<div class="panel-item">
+			<strong>Suministro y ejecucion</strong>
+			<p>Coordinacion de materiales, maniobras y tareas clave para avanzar con continuidad.</p>
+		</div>
+		<div class="panel-item">
+			<strong>Tramites y verificacion</strong>
+			<p>Seguimiento documental y tecnico para respaldar cumplimiento y puesta en marcha.</p>
+		</div>
+	</div>
+</section>
+
+<style>
+	.contact-section {
+		width: var(--content-width);
+		margin: 0 auto;
+		padding: 2rem 0 5rem;
+		display: grid;
+		grid-template-columns: minmax(0, 1fr) minmax(320px, 0.88fr);
+		gap: 1.5rem;
+		align-items: stretch;
+	}
+
+	.contact-copy,
+	.contact-panel {
+		padding: 2rem;
+		border-radius: 2rem;
+		border: 1px solid rgba(255, 255, 255, 0.08);
+	}
+
+	.contact-copy {
+		display: grid;
+		gap: 1rem;
+		background:
+			radial-gradient(circle at top left, rgba(243, 88, 44, 0.2), transparent 28%),
+			linear-gradient(180deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.01)),
+			var(--color-surface-elevated);
+	}
+
+	.eyebrow {
+		margin: 0;
+		color: var(--color-primary);
+		font-size: 0.85rem;
+		font-weight: 700;
+		letter-spacing: 0.14em;
+		text-transform: uppercase;
+	}
+
+	h2,
+	p {
+		margin: 0;
+	}
+
+	h2 {
+		font-size: clamp(2rem, 3vw, 3rem);
+		line-height: 1.08;
+		max-width: 16ch;
+	}
+
+	p {
+		color: var(--color-text-muted);
+		line-height: 1.75;
+	}
+
+	.contact-actions {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.85rem;
+		padding-top: 0.5rem;
+	}
+
+	.primary-action,
+	.secondary-action {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		padding: 0.9rem 1.35rem;
+		border-radius: 4px;
+		font-weight: 700;
+		transition:
+			transform 0.2s ease,
+			border-color 0.2s ease,
+			background-color 0.2s ease;
+	}
+
+	.primary-action {
+		background: var(--color-primary);
+		color: #fff;
+	}
+
+	.secondary-action {
+		border: 1px solid rgba(255, 255, 255, 0.12);
+	}
+
+	.primary-action:hover,
+	.secondary-action:hover,
+	.primary-action:focus-visible,
+	.secondary-action:focus-visible {
+		transform: translateY(-2px);
+		outline: none;
+	}
+
+	.contact-panel {
+		display: grid;
+		gap: 1rem;
+		background: rgba(255, 255, 255, 0.03);
+		box-shadow: var(--shadow-soft);
+	}
+
+	.panel-item {
+		display: grid;
+		gap: 0.5rem;
+		padding: 1.1rem 1.2rem;
+		border-radius: 1.25rem;
+		background: rgba(255, 255, 255, 0.03);
+		border: 1px solid rgba(255, 255, 255, 0.06);
+	}
+
+	.panel-item strong {
+		font-size: 1.05rem;
+	}
+
+	@media (max-width: 960px) {
+		.contact-section {
+			grid-template-columns: 1fr;
+		}
+	}
+</style>

@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 520" role="img" aria-labelledby="title desc">
+  <title id="title">Verificaciones y UVIES</title>
+  <desc id="desc">Ilustracion generica con listas de revision, escudo y puntos de control.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#121212"/>
+      <stop offset="100%" stop-color="#040404"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="520" fill="url(#bg)"/>
+  <circle cx="166" cy="110" r="112" fill="#f3582c" fill-opacity=".14"/>
+  <rect x="58" y="70" width="684" height="380" rx="34" fill="#0d0d0d" stroke="#2f2f2f"/>
+  <rect x="118" y="132" width="250" height="258" rx="26" fill="#151515" stroke="#3a3a3a"/>
+  <rect x="168" y="176" width="148" height="14" rx="7" fill="#fff"/>
+  <rect x="168" y="218" width="148" height="14" rx="7" fill="#fff" fill-opacity=".62"/>
+  <rect x="168" y="260" width="148" height="14" rx="7" fill="#fff" fill-opacity=".62"/>
+  <rect x="168" y="302" width="148" height="14" rx="7" fill="#fff" fill-opacity=".62"/>
+  <circle cx="142" cy="183" r="16" fill="#f3582c"/>
+  <circle cx="142" cy="225" r="16" fill="#f3582c"/>
+  <circle cx="142" cy="267" r="16" fill="#f3582c"/>
+  <circle cx="142" cy="309" r="16" fill="#f3582c"/>
+  <path d="m136 183 5 5 9-12m-14 49 5 5 9-12m-14 49 5 5 9-12m-14 49 5 5 9-12" fill="none" stroke="#fff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M548 144 632 182v68c0 62-37 118-84 144-47-26-84-82-84-144v-68l84-38Z" fill="#f3582c"/>
+  <path d="m516 246 24 24 44-58" fill="none" stroke="#fff" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="448" y="356" width="200" height="16" rx="8" fill="#fff"/>
+  <rect x="482" y="392" width="132" height="14" rx="7" fill="#fff" fill-opacity=".62"/>
+  <text x="92" y="114" fill="#fff" font-family="Arial, Helvetica, sans-serif" font-size="34" font-weight="700">VERIFICACIONES Y UVIES</text>
+</svg>

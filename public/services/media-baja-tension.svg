@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 520" role="img" aria-labelledby="title desc">
+  <title id="title">Instalacion electrica de media y baja tension</title>
+  <desc id="desc">Ilustracion generica con torres, lineas y paneles tecnicos.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#121212"/>
+      <stop offset="100%" stop-color="#050505"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#f3582c"/>
+      <stop offset="100%" stop-color="#ff8859"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="520" fill="url(#bg)"/>
+  <circle cx="658" cy="108" r="118" fill="#f3582c" fill-opacity=".12"/>
+  <rect x="54" y="70" width="692" height="380" rx="32" fill="#0e0e0e" stroke="#2f2f2f"/>
+  <path d="M170 388 240 146m0 0 64 242m-64-242 132 96m-132-96-126 92" stroke="#fff" stroke-opacity=".92" stroke-width="10" stroke-linecap="round"/>
+  <path d="M496 388 566 146m0 0 64 242m-64-242 132 96m-132-96-126 92" stroke="#fff" stroke-opacity=".92" stroke-width="10" stroke-linecap="round"/>
+  <path d="M114 238h572" stroke="url(#accent)" stroke-width="8" stroke-linecap="round"/>
+  <rect x="326" y="182" width="146" height="190" rx="20" fill="#171717" stroke="#3b3b3b"/>
+  <rect x="350" y="208" width="98" height="28" rx="14" fill="#f3582c"/>
+  <rect x="350" y="258" width="98" height="14" rx="7" fill="#fff" fill-opacity=".86"/>
+  <rect x="350" y="286" width="98" height="14" rx="7" fill="#fff" fill-opacity=".5"/>
+  <path d="M406 317 384 350h18l-8 28 30-40h-20l10-21Z" fill="#fff"/>
+  <text x="86" y="112" fill="#fff" font-family="Arial, Helvetica, sans-serif" font-size="34" font-weight="700">MEDIA Y BAJA TENSION</text>
+</svg>

@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 520" role="img" aria-labelledby="title desc">
+  <title id="title">Gestion de tramites ante CFE</title>
+  <desc id="desc">Ilustracion generica con documentos, sello y tablero de seguimiento.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#111"/>
+      <stop offset="100%" stop-color="#050505"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="520" fill="url(#bg)"/>
+  <rect x="60" y="66" width="680" height="388" rx="34" fill="#0d0d0d" stroke="#2f2f2f"/>
+  <circle cx="644" cy="122" r="96" fill="#f3582c" fill-opacity=".14"/>
+  <rect x="132" y="116" width="232" height="292" rx="24" fill="#171717" stroke="#3b3b3b"/>
+  <rect x="174" y="164" width="148" height="18" rx="9" fill="#f3582c"/>
+  <rect x="174" y="214" width="148" height="12" rx="6" fill="#fff"/>
+  <rect x="174" y="246" width="110" height="12" rx="6" fill="#fff" fill-opacity=".6"/>
+  <rect x="174" y="278" width="148" height="12" rx="6" fill="#fff" fill-opacity=".6"/>
+  <rect x="174" y="310" width="88" height="12" rx="6" fill="#fff" fill-opacity=".6"/>
+  <circle cx="292" cy="336" r="38" fill="#f3582c"/>
+  <path d="m277 336 11 12 22-28" fill="none" stroke="#fff" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="426" y="134" width="244" height="242" rx="26" fill="#151515" stroke="#3a3a3a"/>
+  <rect x="462" y="174" width="172" height="56" rx="18" fill="#101010" stroke="#f3582c"/>
+  <text x="494" y="209" fill="#fff" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700">TRAMITE ACTIVO</text>
+  <rect x="462" y="260" width="172" height="14" rx="7" fill="#fff"/>
+  <rect x="462" y="292" width="130" height="14" rx="7" fill="#fff" fill-opacity=".58"/>
+  <rect x="462" y="324" width="156" height="14" rx="7" fill="#fff" fill-opacity=".58"/>
+  <path d="M118 412h564" stroke="#f3582c" stroke-width="8" stroke-linecap="round"/>
+  <text x="92" y="112" fill="#fff" font-family="Arial, Helvetica, sans-serif" font-size="34" font-weight="700">TRAMITES ANTE CFE</text>
+</svg>
