@@ -114,7 +114,6 @@ const slides = [
 
 <style>
 	/* ─── Layout containers ─────────────────────────── */
-	.hero-carousel,
 	.service-list {
 		width: var(--content-width);
 		margin: 0 auto;
@@ -123,14 +122,12 @@ const slides = [
 	/* ─── Hero carousel shell ───────────────────────── */
 	.hero-carousel {
 		position: relative;
+		width: 100%;
 		height: clamp(440px, 58vw, 680px);
-		margin-top: 1.75rem;
+		margin-top: 0;
 		margin-bottom: 2rem;
-		border-radius: 2rem;
 		overflow: hidden;
-		border: 1px solid rgba(255, 255, 255, 0.08);
 		background: #050505;
-		box-shadow: var(--shadow-soft);
 	}
 
 	/* ─── Slides ────────────────────────────────────── */
@@ -164,8 +161,8 @@ const slides = [
 	/* ─── Slide content ─────────────────────────────── */
 	.slide-content {
 		position: absolute;
-		left: 3rem;
-		right: 42%;
+		left: clamp(1rem, 4vw, 3rem);
+		right: 44%;
 		bottom: 4rem;
 		z-index: 2;
 		display: grid;
@@ -236,8 +233,8 @@ const slides = [
 		transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
 	}
 
-	.nav-prev { left: 1.25rem; }
-	.nav-next { right: 1.25rem; }
+	.nav-prev { left: clamp(1rem, 4vw, 3rem); }
+	.nav-next { right: clamp(1rem, 4vw, 3rem); }
 
 	.nav-btn:hover,
 	.nav-btn:focus-visible {
@@ -251,7 +248,7 @@ const slides = [
 	.carousel-dots {
 		position: absolute;
 		bottom: 1.6rem;
-		right: 2.5rem;
+		right: clamp(1rem, 4vw, 3rem);
 		z-index: 10;
 		display: flex;
 		gap: 0.5rem;
@@ -357,7 +354,6 @@ const slides = [
 
 		.slide-content {
 			right: 8%;
-			left: 2rem;
 			bottom: 3.5rem;
 		}
 
@@ -369,12 +365,10 @@ const slides = [
 	@media (max-width: 720px) {
 		.hero-carousel {
 			height: clamp(320px, 75vw, 460px);
-			border-radius: 1.25rem;
 		}
 
 		.slide-content {
-			left: 1.5rem;
-			right: 1.5rem;
+			right: clamp(1rem, 4vw, 3rem);
 			bottom: 3.25rem;
 		}
 
