@@ -1,283 +1,280 @@
 ---
-const services = [
+const slides = [
 	{
-		tag: 'Media y baja tension',
-		title: 'Planeacion estrategica y ejecucion experta en media y baja tension',
+		tag: 'Media y Baja Tensión',
+		title: 'Ingeniería en Media y Baja Tensión',
 		description:
-			'Desarrollamos soluciones electricas para proyectos residenciales, comerciales e industriales con enfoque en seguridad, capacidad operativa y continuidad del servicio.',
-		image: '/services/media-baja-tension.svg',
+			'Planeación y ejecución experta para energizar tus proyectos industriales y residenciales.',
+		cta: 'Solicitar proyecto',
+		image:
+			'https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&w=1920&q=80',
 	},
 	{
-		tag: 'Suministro electrico',
-		title: 'Venta de material electrico',
-		description:
-			'Suministramos componentes y material electrico para obra nueva, mantenimiento y ampliaciones, cuidando compatibilidad, disponibilidad y rendimiento.',
-		image: '/services/material-electrico.svg',
+		tag: 'Gestión Regulatoria',
+		title: 'Trámites y Certificaciones',
+		description: 'Gestoría ante CFE y dictámenes UVIE bajo la NOM-001-SEDE.',
+		cta: 'Iniciar trámite',
+		image:
+			'https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=1920&q=80',
 	},
 	{
-		tag: 'Gestion regulatoria',
-		title: 'Gestion de tramites ante la CFE',
+		tag: 'Suministro Especializado',
+		title: 'Suministro Especializado',
 		description:
-			'Acompanamos el proceso documental y tecnico para que tus instalaciones avancen con orden, claridad y seguimiento en cada etapa del tramite.',
-		image: '/services/tramites-cfe.svg',
+			'Venta de material eléctrico, transformadores, postes y equipo de control bajo normas CFE.',
+		cta: 'Ver catálogo',
+		image:
+			'https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1920&q=80',
 	},
 	{
-		tag: 'Cumplimiento y verificacion',
-		title: 'Verificaciones y UVIES de instalaciones',
+		tag: 'Logística y Maniobras',
+		title: 'Logística y Maniobras',
 		description:
-			'Realizamos verificaciones para respaldar la seguridad y cumplimiento de tus instalaciones con una vision tecnica y preventiva.',
-		image: '/services/verificaciones-uvies.svg',
+			'Renta de grúas articuladas y servicio de fletes especializados para equipo pesado.',
+		cta: 'Solicitar servicio',
+		image:
+			'https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?auto=format&fit=crop&w=1920&q=80',
+	},
+	{
+		tag: 'Inspección Técnica',
+		title: 'Inspección Técnica y Mantenimiento',
+		description: 'Escaneo de redes eléctricas con cámara termográfica por medio de drones.',
+		cta: 'Agendar inspección',
+		image:
+			'https://images.unsplash.com/photo-1508614589041-895b88991e3e?auto=format&fit=crop&w=1920&q=80',
 	},
 ];
 ---
 
-<section class="services-hero" id="servicios">
-	<div class="copy-column">
-		<p class="eyebrow">Soluciones electricas integrales</p>
-		<h1>Energia confiable para proyectos que necesitan precision, cumplimiento y respuesta.</h1>
-		<p class="lead">
-			POWERLINE MULTISERVICIOS integra planeacion, suministro, tramites y verificacion para
-			resolver instalaciones electricas con una ejecucion clara y profesional.
-		</p>
-		<div class="actions">
-			<a class="primary-action" href="#contacto">Solicitar asesoria</a>
-			<a class="secondary-action" href="#servicios-lista">Explorar servicios</a>
-		</div>
-	</div>
+<section class="hero-carousel" id="servicios" aria-label="Servicios POWERLINE">
+	{slides.map((slide, index) => (
+		<article
+			class={`slide${index === 0 ? ' is-active' : ''}`}
+			aria-hidden={index !== 0 ? 'true' : 'false'}
+		>
+			<img
+				src={slide.image}
+				alt=""
+				width="1920"
+				height="900"
+				loading={index === 0 ? 'eager' : 'lazy'}
+			/>
+			<div class="slide-overlay" aria-hidden="true"></div>
+			<div class="slide-content">
+				<h1 class="slide-title">
+					<span class="title-headline">{slide.title}:</span>
+					<span class="title-tagline">{slide.description}</span>
+				</h1>
+				<a class="slide-cta" href="#contacto">{slide.cta}</a>
+			</div>
+		</article>
+	))}
 
-	<div class="carousel-column">
-		<div class="carousel" aria-label="Carrusel automatico de servicios" aria-live="off">
-			{services.map((service, index) => (
-				<article class="slide" style={`--delay: -${index * 8}s;`}>
-					<img
-						src={service.image}
-						alt=""
-						width="800"
-						height="520"
-						loading={index === 0 ? 'eager' : 'lazy'}
-					/>
-					<div class="slide-content">
-						<span>{service.tag}</span>
-						<h2>{service.title}</h2>
-						<p>{service.description}</p>
-					</div>
-				</article>
-			))}
-		</div>
+	<button class="nav-btn nav-prev" aria-label="Slide anterior" type="button">
+		<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+			<polyline points="15 18 9 12 15 6"></polyline>
+		</svg>
+	</button>
+	<button class="nav-btn nav-next" aria-label="Slide siguiente" type="button">
+		<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+			<polyline points="9 18 15 12 9 6"></polyline>
+		</svg>
+	</button>
 
-		<ul class="indicators" aria-label="Servicios destacados">
-			{services.map((service) => (
-				<li>{service.tag}</li>
-			))}
-		</ul>
+	<div class="carousel-dots" role="tablist" aria-label="Navegación del carrusel">
+		{slides.map((slide, index) => (
+			<button
+				class={`dot${index === 0 ? ' is-active' : ''}`}
+				role="tab"
+				aria-selected={index === 0 ? 'true' : 'false'}
+				aria-label={`Ir al slide ${index + 1}: ${slide.title}`}
+				data-index={String(index)}
+				type="button"
+			></button>
+		))}
 	</div>
 </section>
 
 <section class="service-list" id="servicios-lista">
 	<div class="section-heading">
-		<p class="eyebrow">Cobertura comercial y tecnica</p>
-		<h2>Servicios que acompañan la instalacion de principio a fin.</h2>
+		<p class="eyebrow">Cobertura comercial y técnica</p>
+		<h2>Servicios que acompañan la instalación de principio a fin.</h2>
 	</div>
 
 	<div class="service-grid">
-		{services.map((service) => (
+		{slides.map((slide) => (
 			<article class="service-card">
-				<span>{service.tag}</span>
-				<h3>{service.title}</h3>
-				<p>{service.description}</p>
+				<span>{slide.tag}</span>
+				<h3>{slide.title}</h3>
+				<p>{slide.description}</p>
 			</article>
 		))}
 	</div>
 </section>
 
 <style>
-	.services-hero,
+	/* ─── Layout containers ─────────────────────────── */
+	.hero-carousel,
 	.service-list {
 		width: var(--content-width);
 		margin: 0 auto;
 	}
 
-	.services-hero {
-		display: grid;
-		grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
-		gap: 2rem;
-		padding: 4rem 0 3rem;
-		align-items: center;
-	}
-
-	.copy-column {
-		display: grid;
-		gap: 1.25rem;
-	}
-
-	.eyebrow {
-		margin: 0;
-		color: var(--color-primary);
-		font-size: 0.85rem;
-		font-weight: 700;
-		letter-spacing: 0.14em;
-		text-transform: uppercase;
-	}
-
-	h1,
-	h2,
-	h3,
-	p {
-		margin: 0;
-	}
-
-	h1 {
-		font-size: clamp(2.75rem, 5vw, 4.5rem);
-		line-height: 0.98;
-		max-width: 12ch;
-	}
-
-	.lead {
-		max-width: 60ch;
-		color: var(--color-text-muted);
-		font-size: 1.05rem;
-		line-height: 1.75;
-	}
-
-	.actions {
-		display: flex;
-		flex-wrap: wrap;
-		gap: 0.9rem;
-	}
-
-	.primary-action,
-	.secondary-action {
-		display: inline-flex;
-		align-items: center;
-		justify-content: center;
-		padding: 0.9rem 1.35rem;
-		border-radius: 4px;
-		font-weight: 700;
-		transition:
-			transform 0.2s ease,
-			border-color 0.2s ease,
-			background-color 0.2s ease;
-	}
-
-	.primary-action {
-		background: var(--color-primary);
-		color: #fff;
-		box-shadow: 0 18px 40px rgba(243, 88, 44, 0.28);
-	}
-
-	.secondary-action {
-		border: 1px solid rgba(255, 255, 255, 0.12);
-		color: var(--color-text);
-	}
-
-	.primary-action:hover,
-	.secondary-action:hover,
-	.primary-action:focus-visible,
-	.secondary-action:focus-visible {
-		transform: translateY(-2px);
-		outline: none;
-	}
-
-	.secondary-action:hover,
-	.secondary-action:focus-visible {
-		border-color: rgba(243, 88, 44, 0.4);
-		background: rgba(255, 255, 255, 0.03);
-	}
-
-	.carousel-column {
-		display: grid;
-		gap: 1rem;
-	}
-
-	.carousel {
+	/* ─── Hero carousel shell ───────────────────────── */
+	.hero-carousel {
 		position: relative;
-		min-height: 520px;
+		height: clamp(440px, 58vw, 680px);
+		margin-top: 1.75rem;
+		margin-bottom: 2rem;
 		border-radius: 2rem;
 		overflow: hidden;
 		border: 1px solid rgba(255, 255, 255, 0.08);
-		background: #0b0b0b;
+		background: #050505;
 		box-shadow: var(--shadow-soft);
 	}
 
+	/* ─── Slides ────────────────────────────────────── */
 	.slide {
 		position: absolute;
 		inset: 0;
-		display: grid;
 		opacity: 0;
-		animation: fade-carousel 32s infinite ease-in-out;
-		animation-delay: var(--delay);
+		transition: opacity 0.7s ease;
+	}
+
+	.slide.is-active {
+		opacity: 1;
 	}
 
 	.slide img {
 		width: 100%;
 		height: 100%;
 		object-fit: cover;
+		object-position: center;
 	}
 
-	.slide::after {
-		content: '';
+	/* ─── Overlay ───────────────────────────────────── */
+	.slide-overlay {
 		position: absolute;
 		inset: 0;
 		background:
-			linear-gradient(180deg, rgba(0, 0, 0, 0.06), rgba(0, 0, 0, 0.7)),
-			linear-gradient(110deg, rgba(5, 5, 5, 0.78) 18%, rgba(5, 5, 5, 0.1) 70%);
+			linear-gradient(to top, rgba(0, 0, 0, 0.88) 0%, rgba(0, 0, 0, 0.3) 48%, rgba(0, 0, 0, 0.08) 100%),
+			linear-gradient(to right, rgba(0, 0, 0, 0.62) 0%, rgba(0, 0, 0, 0) 55%);
 	}
 
+	/* ─── Slide content ─────────────────────────────── */
 	.slide-content {
 		position: absolute;
-		left: 2rem;
-		right: 2rem;
-		bottom: 2rem;
-		z-index: 1;
+		left: 3rem;
+		right: 42%;
+		bottom: 4rem;
+		z-index: 2;
 		display: grid;
-		gap: 0.7rem;
-		max-width: 32rem;
+		gap: 1.4rem;
 	}
 
-	.slide-content span {
+	.slide-title {
+		margin: 0;
+		display: grid;
+		gap: 0.55rem;
+	}
+
+	.title-headline {
+		display: block;
+		font-size: clamp(1.85rem, 3.2vw, 3rem);
+		font-weight: 800;
+		line-height: 1.06;
+		color: #fff;
+		letter-spacing: -0.01em;
+	}
+
+	.title-tagline {
+		display: block;
+		font-size: clamp(0.95rem, 1.35vw, 1.18rem);
+		font-weight: 400;
+		line-height: 1.55;
+		color: rgba(255, 255, 255, 0.84);
+	}
+
+	.slide-cta {
 		display: inline-flex;
 		align-items: center;
+		justify-content: center;
 		width: fit-content;
-		padding: 0.45rem 0.8rem;
-		border-radius: 999px;
-		background: rgba(243, 88, 44, 0.16);
-		border: 1px solid rgba(243, 88, 44, 0.35);
+		padding: 0.85rem 1.6rem;
+		border-radius: 4px;
+		background: var(--color-primary);
 		color: #fff;
-		font-size: 0.8rem;
 		font-weight: 700;
-		letter-spacing: 0.08em;
-		text-transform: uppercase;
+		font-size: 0.95rem;
+		box-shadow: 0 12px 30px rgba(243, 88, 44, 0.3);
+		transition: transform 0.2s ease, background-color 0.2s ease;
 	}
 
-	.slide-content h2 {
-		font-size: clamp(1.55rem, 2vw, 2.25rem);
-		line-height: 1.1;
+	.slide-cta:hover,
+	.slide-cta:focus-visible {
+		transform: translateY(-2px);
+		background: #d9461a;
+		outline: none;
 	}
 
-	.slide-content p {
-		color: rgba(255, 255, 255, 0.82);
-		line-height: 1.7;
+	/* ─── Navigation arrows ─────────────────────────── */
+	.nav-btn {
+		position: absolute;
+		top: 50%;
+		transform: translateY(-50%);
+		z-index: 10;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 3rem;
+		height: 3rem;
+		border-radius: 50%;
+		border: 1px solid rgba(255, 255, 255, 0.18);
+		background: rgba(0, 0, 0, 0.42);
+		color: #fff;
+		cursor: pointer;
+		transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
 	}
 
-	.indicators {
-		display: grid;
-		grid-template-columns: repeat(4, minmax(0, 1fr));
-		gap: 0.75rem;
+	.nav-prev { left: 1.25rem; }
+	.nav-next { right: 1.25rem; }
+
+	.nav-btn:hover,
+	.nav-btn:focus-visible {
+		background: rgba(243, 88, 44, 0.55);
+		border-color: rgba(243, 88, 44, 0.65);
+		transform: translateY(-50%) scale(1.08);
+		outline: none;
+	}
+
+	/* ─── Dots ──────────────────────────────────────── */
+	.carousel-dots {
+		position: absolute;
+		bottom: 1.6rem;
+		right: 2.5rem;
+		z-index: 10;
+		display: flex;
+		gap: 0.5rem;
+		align-items: center;
+	}
+
+	.dot {
+		width: 0.5rem;
+		height: 0.5rem;
+		border-radius: 999px;
+		border: none;
+		background: rgba(255, 255, 255, 0.38);
+		cursor: pointer;
 		padding: 0;
-		margin: 0;
-		list-style: none;
+		transition: width 0.3s ease, background-color 0.3s ease;
 	}
 
-	.indicators li {
-		padding: 0.9rem 1rem;
-		border-radius: 1rem;
-		border: 1px solid rgba(255, 255, 255, 0.08);
-		background: rgba(255, 255, 255, 0.03);
-		color: var(--color-text-muted);
-		font-size: 0.86rem;
-		line-height: 1.4;
+	.dot.is-active {
+		width: 1.75rem;
+		background: var(--color-primary);
 	}
 
+	/* ─── Service list ──────────────────────────────── */
 	.service-list {
 		padding: 1rem 0 4rem;
 	}
@@ -289,6 +286,21 @@ const services = [
 		margin-bottom: 1.8rem;
 	}
 
+	.eyebrow {
+		margin: 0;
+		color: var(--color-primary);
+		font-size: 0.85rem;
+		font-weight: 700;
+		letter-spacing: 0.14em;
+		text-transform: uppercase;
+	}
+
+	h2,
+	h3,
+	p {
+		margin: 0;
+	}
+
 	.section-heading h2 {
 		font-size: clamp(2rem, 3vw, 3rem);
 		line-height: 1.05;
@@ -296,7 +308,7 @@ const services = [
 
 	.service-grid {
 		display: grid;
-		grid-template-columns: repeat(4, minmax(0, 1fr));
+		grid-template-columns: repeat(3, minmax(0, 1fr));
 		gap: 1rem;
 	}
 
@@ -320,75 +332,119 @@ const services = [
 	}
 
 	.service-card h3 {
-		font-size: 1.15rem;
+		font-size: 1.1rem;
 		line-height: 1.35;
 	}
 
 	.service-card p {
 		color: var(--color-text-muted);
 		line-height: 1.7;
+		font-size: 0.92rem;
 	}
 
-	@keyframes fade-carousel {
-		0%,
-		18% {
-			opacity: 1;
-			transform: scale(1);
-		}
-
-		23%,
-		100% {
-			opacity: 0;
-			transform: scale(1.03);
-		}
-	}
-
+	/* ─── Reduced motion ────────────────────────────── */
 	@media (prefers-reduced-motion: reduce) {
 		.slide {
-			animation: none;
-			opacity: 0;
-		}
-
-		.slide:first-child {
-			opacity: 1;
-			position: relative;
+			transition: none;
 		}
 	}
 
+	/* ─── Responsive ────────────────────────────────── */
 	@media (max-width: 960px) {
-		.services-hero {
-			grid-template-columns: 1fr;
-			padding-top: 3rem;
+		.hero-carousel {
+			height: clamp(380px, 55vw, 520px);
 		}
 
-		h1 {
-			max-width: 14ch;
+		.slide-content {
+			right: 8%;
+			left: 2rem;
+			bottom: 3.5rem;
 		}
 
-		.indicators,
 		.service-grid {
 			grid-template-columns: repeat(2, minmax(0, 1fr));
 		}
 	}
 
 	@media (max-width: 720px) {
-		.carousel {
-			min-height: 440px;
+		.hero-carousel {
+			height: clamp(320px, 75vw, 460px);
+			border-radius: 1.25rem;
 		}
 
 		.slide-content {
-			left: 1.35rem;
-			right: 1.35rem;
-			bottom: 1.35rem;
+			left: 1.5rem;
+			right: 1.5rem;
+			bottom: 3.25rem;
 		}
 
-		.slide-content h2 {
-			font-size: 1.45rem;
+		.carousel-dots {
+			right: 50%;
+			transform: translateX(50%);
+			bottom: 1.1rem;
 		}
 
-		.indicators,
+		.nav-btn {
+			display: none;
+		}
+	}
+
+	@media (max-width: 480px) {
 		.service-grid {
 			grid-template-columns: 1fr;
 		}
 	}
 </style>
+
+<script>
+	const hero = document.querySelector('.hero-carousel') as HTMLElement | null;
+
+	if (hero) {
+		const slides = Array.from(hero.querySelectorAll('.slide')) as HTMLElement[];
+		const dots = Array.from(hero.querySelectorAll('.dot')) as HTMLButtonElement[];
+		const prevBtn = hero.querySelector('.nav-prev') as HTMLButtonElement | null;
+		const nextBtn = hero.querySelector('.nav-next') as HTMLButtonElement | null;
+		const total = slides.length;
+		let current = 0;
+		let timer: ReturnType<typeof setInterval> | undefined;
+		const DELAY = 6000;
+
+		function goTo(index: number) {
+			slides[current].classList.remove('is-active');
+			slides[current].setAttribute('aria-hidden', 'true');
+			dots[current].classList.remove('is-active');
+			dots[current].setAttribute('aria-selected', 'false');
+
+			current = ((index % total) + total) % total;
+
+			slides[current].classList.add('is-active');
+			slides[current].setAttribute('aria-hidden', 'false');
+			dots[current].classList.add('is-active');
+			dots[current].setAttribute('aria-selected', 'true');
+		}
+
+		function stopAutoplay() {
+			clearInterval(timer);
+			timer = undefined;
+		}
+
+		function startAutoplay() {
+			stopAutoplay();
+			timer = setInterval(() => goTo(current + 1), DELAY);
+		}
+
+		prevBtn?.addEventListener('click', () => { goTo(current - 1); startAutoplay(); });
+		nextBtn?.addEventListener('click', () => { goTo(current + 1); startAutoplay(); });
+
+		dots.forEach((dot, i) => {
+			dot.addEventListener('click', () => { goTo(i); startAutoplay(); });
+		});
+
+		hero.addEventListener('mouseenter', stopAutoplay);
+		hero.addEventListener('mouseleave', startAutoplay);
+
+		if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+			startAutoplay();
+		}
+	}
+</script>
