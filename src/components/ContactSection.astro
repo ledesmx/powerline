@@ -45,15 +45,14 @@
 	.contact-panel {
 		padding: 2rem;
 		border-radius: 2rem;
-		border: 1px solid rgba(255, 255, 255, 0.08);
+		border: 1px solid var(--color-border);
 	}
 
 	.contact-copy {
 		display: grid;
 		gap: 1rem;
 		background:
-			radial-gradient(circle at top left, rgba(243, 88, 44, 0.2), transparent 28%),
-			linear-gradient(180deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.01)),
+			radial-gradient(circle at top left, rgba(243, 88, 44, 0.1), transparent 28%),
 			var(--color-surface-elevated);
 	}
 
@@ -109,7 +108,7 @@
 	}
 
 	.secondary-action {
-		border: 1px solid rgba(255, 255, 255, 0.12);
+		border: 1px solid var(--color-border);
 	}
 
 	.primary-action:hover,
@@ -123,7 +122,7 @@
 	.contact-panel {
 		display: grid;
 		gap: 1rem;
-		background: rgba(255, 255, 255, 0.03);
+		background: var(--color-surface-muted);
 		box-shadow: var(--shadow-soft);
 	}
 
@@ -132,8 +131,8 @@
 		gap: 0.5rem;
 		padding: 1.1rem 1.2rem;
 		border-radius: 1.25rem;
-		background: rgba(255, 255, 255, 0.03);
-		border: 1px solid rgba(255, 255, 255, 0.06);
+		background: var(--color-surface);
+		border: 1px solid var(--color-border);
 	}
 
 	.panel-item strong {
