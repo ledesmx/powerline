@@ -5,24 +5,6 @@ import Navbar from '../components/Navbar.astro';
 import ProjectsSection from '../components/ProjectsSection.astro';
 import ServicesCarousel from '../components/ServicesCarousel.astro';
 import Layout from '../layouts/Layout.astro';
-
-const highlights = [
-	{
-		title: 'Instalaciones con criterio tecnico',
-		description:
-			'Planeamos cada solucion con base en demanda, seguridad operativa y continuidad del servicio.',
-	},
-	{
-		title: 'Material y ejecucion coordinados',
-		description:
-			'Alineamos suministro, mano de obra y avance para evitar retrabajos y cuellos de botella.',
-	},
-	{
-		title: 'Acompanamiento regulatorio',
-		description:
-			'Integramos tramites, verificaciones y documentacion para respaldar cada entrega.',
-	},
-];
 ---
 
 <Layout
@@ -36,49 +18,6 @@ const highlights = [
 			<ServicesCarousel />
 
 			<ProjectsSection />
-
-			<section class="highlights-section" aria-label="Propuesta de valor">
-				<div class="section-copy">
-					<p class="eyebrow">Por que POWERLINE</p>
-					<h2>Una landing enfocada en confianza tecnica, ejecucion y cumplimiento.</h2>
-				</div>
-
-				<div class="highlight-grid">
-					{highlights.map((item) => (
-						<article class="highlight-card">
-							<div class="highlight-index" aria-hidden="true"></div>
-							<h3>{item.title}</h3>
-							<p>{item.description}</p>
-						</article>
-					))}
-				</div>
-			</section>
-
-			<section class="stats-section" aria-label="Resumen corporativo">
-				<div class="stats-copy">
-					<p class="eyebrow">Cobertura integral</p>
-					<h2>Desde la planeacion hasta la verificacion final.</h2>
-					<p>
-						Integramos servicios que ayudan a resolver necesidades electricas con una sola
-						linea de trabajo: diagnostico, suministro, gestion y ejecucion.
-					</p>
-				</div>
-
-				<div class="stats-grid">
-					<div class="stat-card">
-						<strong>4</strong>
-						<span>lineas de servicio prioritarias</span>
-					</div>
-					<div class="stat-card">
-						<strong>CFE</strong>
-						<span>acompanamiento en tramites y gestion</span>
-					</div>
-					<div class="stat-card">
-						<strong>UVIES</strong>
-						<span>verificacion enfocada en seguridad y cumplimiento</span>
-					</div>
-				</div>
-			</section>
 
 			<ContactSection />
 		</main>
@@ -94,23 +33,6 @@ const highlights = [
 	main {
 		display: grid;
 		gap: 0;
-	}
-
-	.highlights-section,
-	.stats-section {
-		width: var(--content-width);
-		margin: 0 auto;
-	}
-
-	.highlights-section {
-		padding: 0.5rem 0 3.5rem;
-	}
-
-	.section-copy {
-		display: grid;
-		gap: 0.8rem;
-		max-width: 44rem;
-		margin-bottom: 1.6rem;
 	}
 
 	.eyebrow {
@@ -138,80 +60,5 @@ const highlights = [
 		line-height: 1.75;
 	}
 
-	.highlight-grid {
-		display: grid;
-		grid-template-columns: repeat(3, minmax(0, 1fr));
-		gap: 1rem;
-	}
-
-	.highlight-card,
-	.stat-card {
-		padding: 1.6rem;
-		border-radius: 1.5rem;
-		border: 1px solid var(--color-border);
-		background: var(--color-surface-elevated);
-	}
-
-	.highlight-card {
-		display: grid;
-		gap: 0.9rem;
-	}
-
-	.highlight-index {
-		width: 3rem;
-		height: 0.35rem;
-		border-radius: 999px;
-		background: var(--color-primary);
-	}
-
-	.highlight-card h3 {
-		font-size: 1.12rem;
-		line-height: 1.35;
-	}
-
-	.stats-section {
-		display: grid;
-		grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
-		gap: 1.25rem;
-		padding: 0 0 1.5rem;
-		align-items: start;
-	}
-
-	.stats-copy {
-		display: grid;
-		gap: 1rem;
-		padding-top: 0.3rem;
-	}
-
-	.stats-grid {
-		display: grid;
-		grid-template-columns: repeat(3, minmax(0, 1fr));
-		gap: 1rem;
-	}
-
-	.stat-card {
-		display: grid;
-		align-content: start;
-		gap: 0.85rem;
-		min-height: 12rem;
-	}
-
-	.stat-card strong {
-		font-size: clamp(2rem, 3vw, 2.8rem);
-		line-height: 1;
-		color: var(--color-primary);
-	}
-
-	.stat-card span {
-		color: var(--color-text-muted);
-		line-height: 1.6;
-	}
-
 	@media (max-width: 960px) {
-		.highlight-grid,
-		.stats-grid,
-		.stats-section {
-			grid-template-columns: 1fr;
-		}
-	}
 </style>
