@@ -70,7 +70,7 @@ const projects = [
 				<span class="header-line" aria-hidden="true"></span>
 				<p class="eyebrow">Proyectos ejecutados</p>
 			</div>
-			<h2>Infraestructura eléctrica<br />entregada en campo.</h2>
+			<h2>Infraestructura eléctrica entregada en campo.</h2>
 		</div>
 
 		<div class="projects-bento">
@@ -105,10 +105,10 @@ const projects = [
 </section>
 
 <style>
-	/* ─── Section shell (dark industrial bg) ──────── */
+	/* ─── Section shell ──────────────────────────── */
 	.projects-section {
-		background: #0b0c0e;
-		padding: 5rem 0;
+		background: var(--color-surface);
+		padding: 2.5rem 0 5rem;
 	}
 
 	.projects-inner {
@@ -120,7 +120,8 @@ const projects = [
 	.projects-header {
 		display: grid;
 		gap: 1rem;
-		margin-bottom: 3rem;
+		margin-bottom: 1.5rem;
+		max-width: none;
 	}
 
 	.header-label {
@@ -146,11 +147,12 @@ const projects = [
 
 	h2 {
 		margin: 0;
-		font-size: clamp(2rem, 3.4vw, 3.2rem);
-		line-height: 1.08;
-		color: #fff;
+		font-size: clamp(2rem, 3vw, 3.2rem);
+		line-height: 1.05;
+		color: var(--color-text);
 		font-weight: 800;
-		letter-spacing: -0.01em;
+		letter-spacing: -0.02em;
+		max-width: none;
 	}
 
 	/* ─── Bento grid ─────────────────────────────── */
