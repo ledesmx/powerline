@@ -1,0 +1,332 @@
+---
+const projects = [
+	{
+		title: 'Subestación eléctrica 500 kVA',
+		location: 'Parque Industrial Querétaro',
+		category: 'Media Tensión',
+		scope: '4,800 m² · Subestación pedestal · Gestión CFE · UVIE',
+		description:
+			'Diseño, suministro e instalación de subestación tipo pedestal para nave industrial. Incluye gestión ante CFE y verificación UVIE.',
+		image:
+			'https://images.unsplash.com/photo-1621905252507-b35492cc74b4?auto=format&fit=crop&w=1200&q=80',
+	},
+	{
+		title: 'Red de distribución subterránea',
+		location: 'Fraccionamiento Los Álamos',
+		category: 'Baja Tensión',
+		scope: '3.2 km · 120 viviendas · Llave en mano',
+		description:
+			'Tendido de cable subterráneo en media y baja tensión. Coordinación con obra civil y entrega llave en mano.',
+		image:
+			'https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?auto=format&fit=crop&w=1200&q=80',
+	},
+	{
+		title: 'Montaje de transformador 300 kVA',
+		location: 'Centro Comercial Plaza Sur',
+		category: 'Suministro e Instalación',
+		scope: '300 kVA · Grúa articulada · Acometida · Contrato CFE',
+		description:
+			'Maniobra con grúa articulada para montaje de transformador tipo poste, conexión de acometida y trámite de contrato ante CFE.',
+		image:
+			'https://images.unsplash.com/photo-1558618666-fcd25c85f82e?auto=format&fit=crop&w=1200&q=80',
+	},
+	{
+		title: 'Inspección termográfica con dron',
+		location: 'Planta Cementera del Bajío',
+		category: 'Inspección Técnica',
+		scope: 'Cámara termográfica · Líneas MT · Tableros principales',
+		description:
+			'Escaneo aéreo de líneas de media tensión y tableros con cámara termográfica. Reporte de puntos calientes y plan de mantenimiento preventivo.',
+		image:
+			'https://images.unsplash.com/photo-1508614589041-895b88991e3e?auto=format&fit=crop&w=1200&q=80',
+	},
+	{
+		title: 'Dictamen UVIE NOM-001-SEDE',
+		location: 'Bodega de distribución logística',
+		category: 'Verificación',
+		scope: '2,200 m² · 180 kW · NOM-001-SEDE',
+		description:
+			'Dictamen de verificación de instalaciones eléctricas conforme a NOM-001-SEDE para bodega con carga instalada de 180 kW.',
+		image:
+			'https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=1200&q=80',
+	},
+	{
+		title: 'Acometida trifásica y tablero general',
+		location: 'Hotel Boutique Centro Histórico',
+		category: 'Baja Tensión',
+		scope: '220 V trifásico · Tablero general · Tierras físicas',
+		description:
+			'Diseño e instalación de acometida trifásica, tablero general con interruptores termomagnéticos y sistema de tierras físicas.',
+		image:
+			'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1200&q=80',
+	},
+];
+---
+
+<section class="projects-section" id="proyectos" aria-label="Proyectos realizados">
+	<div class="projects-inner">
+		<div class="projects-header">
+			<div class="header-label">
+				<span class="header-line" aria-hidden="true"></span>
+				<p class="eyebrow">Proyectos ejecutados</p>
+			</div>
+			<h2>Infraestructura eléctrica<br />entregada en campo.</h2>
+		</div>
+
+		<div class="projects-bento">
+			{projects.map((project, i) => (
+				<article class={`project-card ${i === 0 ? 'card-featured' : ''}`}>
+					<img
+						src={project.image}
+						alt={project.title}
+						width="1200"
+						height="800"
+						loading="lazy"
+					/>
+					<div class="card-overlay"></div>
+					<div class="card-content">
+						<div class="card-top">
+							<span class="card-index">{String(i + 1).padStart(2, '0')}</span>
+							<span class="card-category">{project.category}</span>
+						</div>
+						<div class="card-bottom">
+							<h3>{project.title}</h3>
+							<p class="card-location">
+								<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+								{project.location}
+							</p>
+							<p class="card-scope">{project.scope}</p>
+						</div>
+					</div>
+				</article>
+			))}
+		</div>
+	</div>
+</section>
+
+<style>
+	/* ─── Section shell (dark industrial bg) ──────── */
+	.projects-section {
+		background: #0b0c0e;
+		padding: 5rem 0;
+	}
+
+	.projects-inner {
+		width: var(--content-width);
+		margin: 0 auto;
+	}
+
+	/* ─── Header ─────────────────────────────────── */
+	.projects-header {
+		display: grid;
+		gap: 1rem;
+		margin-bottom: 3rem;
+	}
+
+	.header-label {
+		display: flex;
+		align-items: center;
+		gap: 0.75rem;
+	}
+
+	.header-line {
+		width: 2.5rem;
+		height: 2px;
+		background: var(--color-primary);
+	}
+
+	.eyebrow {
+		margin: 0;
+		color: var(--color-primary);
+		font-size: 0.8rem;
+		font-weight: 700;
+		letter-spacing: 0.18em;
+		text-transform: uppercase;
+	}
+
+	h2 {
+		margin: 0;
+		font-size: clamp(2rem, 3.4vw, 3.2rem);
+		line-height: 1.08;
+		color: #fff;
+		font-weight: 800;
+		letter-spacing: -0.01em;
+	}
+
+	/* ─── Bento grid ─────────────────────────────── */
+	.projects-bento {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		grid-auto-rows: 280px;
+		gap: 0.6rem;
+	}
+
+	/* Featured card spans 2 cols + 2 rows */
+	.card-featured {
+		grid-column: 1 / 3;
+		grid-row: 1 / 3;
+	}
+
+	/* ─── Card ───────────────────────────────────── */
+	.project-card {
+		position: relative;
+		overflow: hidden;
+		border-radius: 0.5rem;
+		cursor: default;
+	}
+
+	.project-card img {
+		position: absolute;
+		inset: 0;
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		transition: transform 0.55s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+	}
+
+	.project-card:hover img {
+		transform: scale(1.06);
+	}
+
+	/* ─── Overlay ────────────────────────────────── */
+	.card-overlay {
+		position: absolute;
+		inset: 0;
+		background: linear-gradient(
+			to top,
+			rgba(0, 0, 0, 0.88) 0%,
+			rgba(0, 0, 0, 0.35) 45%,
+			rgba(0, 0, 0, 0.15) 100%
+		);
+		transition: background 0.35s ease;
+	}
+
+	.project-card:hover .card-overlay {
+		background: linear-gradient(
+			to top,
+			rgba(0, 0, 0, 0.92) 0%,
+			rgba(0, 0, 0, 0.45) 50%,
+			rgba(0, 0, 0, 0.2) 100%
+		);
+	}
+
+	/* ─── Card content ───────────────────────────── */
+	.card-content {
+		position: relative;
+		z-index: 1;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		height: 100%;
+		padding: 1.2rem 1.3rem;
+	}
+
+	.card-top {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+	}
+
+	.card-index {
+		font-family: 'Courier New', Courier, monospace;
+		font-size: 0.78rem;
+		font-weight: 700;
+		color: rgba(255, 255, 255, 0.4);
+		letter-spacing: 0.06em;
+	}
+
+	.card-category {
+		padding: 0.25rem 0.65rem;
+		font-size: 0.65rem;
+		font-weight: 700;
+		letter-spacing: 0.1em;
+		text-transform: uppercase;
+		color: var(--color-primary);
+		border: 1px solid rgba(243, 88, 44, 0.4);
+		border-radius: 0.2rem;
+		background: rgba(243, 88, 44, 0.08);
+	}
+
+	.card-bottom {
+		display: grid;
+		gap: 0.4rem;
+	}
+
+	.card-bottom h3 {
+		margin: 0;
+		font-size: 1.1rem;
+		font-weight: 700;
+		line-height: 1.3;
+		color: #fff;
+	}
+
+	.card-featured .card-bottom h3 {
+		font-size: 1.45rem;
+	}
+
+	.card-location {
+		margin: 0;
+		display: flex;
+		align-items: center;
+		gap: 0.35rem;
+		font-size: 0.82rem;
+		color: rgba(255, 255, 255, 0.55);
+		line-height: 1.4;
+	}
+
+	.card-location svg {
+		flex-shrink: 0;
+		opacity: 0.7;
+	}
+
+	.card-scope {
+		margin: 0;
+		font-family: 'Courier New', Courier, monospace;
+		font-size: 0.72rem;
+		color: rgba(255, 255, 255, 0.35);
+		letter-spacing: 0.04em;
+		line-height: 1.5;
+	}
+
+	/* ─── Accent bar on hover ────────────────────── */
+	.project-card::after {
+		content: '';
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		height: 3px;
+		background: var(--color-primary);
+		transform: scaleX(0);
+		transform-origin: left;
+		transition: transform 0.35s ease;
+	}
+
+	.project-card:hover::after {
+		transform: scaleX(1);
+	}
+
+	/* ─── Responsive ─────────────────────────────── */
+	@media (max-width: 960px) {
+		.projects-bento {
+			grid-template-columns: repeat(2, 1fr);
+			grid-auto-rows: 260px;
+		}
+
+		.card-featured {
+			grid-column: 1 / -1;
+			grid-row: auto;
+		}
+	}
+
+	@media (max-width: 600px) {
+		.projects-section {
+			padding: 3.5rem 0;
+		}
+
+		.projects-bento {
+			grid-template-columns: 1fr;
+			grid-auto-rows: 240px;
+		}
+	}
+</style>
