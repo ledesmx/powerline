@@ -1,0 +1,171 @@
+---
+const clients = [
+	{ name: 'ARSA Nutrition', file: 'arsa-nutrition.png' },
+	{ name: 'CFE', file: 'cfe.png' },
+	{ name: 'Dorsa Energy', file: 'dorsa-energy.png' },
+	{ name: 'Duraplay', file: 'duraplay.png' },
+	{ name: 'Eléctrica Hapala', file: 'electrica-hapala.png' },
+	{ name: 'Funesma', file: 'funesma.png' },
+	{ name: 'Grupo México', file: 'grupo-mexico.png' },
+	{ name: 'IGH Fundición', file: 'igh-fundicion.png' },
+	{ name: 'ISEDSA', file: 'isedsa.png' },
+	{ name: 'Mayepsa', file: 'mayepsa.png' },
+	{ name: 'Minera Frisco', file: 'minera-frisco.png' },
+	{ name: 'Minera Titán', file: 'minera-titan.png' },
+	{ name: 'Mynotauro', file: 'mynotauro.png' },
+	{ name: 'Parral', file: 'parral.png' },
+	{ name: 'RM Minera', file: 'rm-minera.png' },
+	{ name: 'Tekcon', file: 'tekcon.png' },
+];
+---
+
+<section class="clients-section" aria-label="Clientes que confían en nosotros">
+	<div class="clients-inner">
+		<header class="clients-header">
+			<div class="header-label">
+				<span class="header-line" aria-hidden="true"></span>
+				<p class="eyebrow">Quiénes confían en nosotros</p>
+			</div>
+			<h2>Clientes que nos respaldan.</h2>
+		</header>
+	</div>
+
+	<div class="track-wrapper" aria-hidden="true">
+		<div class="track">
+			{clients.map((client) => (
+				<div class="logo-item">
+					<img
+						src={`/clients/${client.file}`}
+						alt={client.name}
+						height="48"
+						loading="lazy"
+					/>
+				</div>
+			))}
+			{/* Duplicate for seamless loop */}
+			{clients.map((client) => (
+				<div class="logo-item" aria-hidden="true">
+					<img
+						src={`/clients/${client.file}`}
+						alt=""
+						height="48"
+						loading="lazy"
+					/>
+				</div>
+			))}
+		</div>
+	</div>
+</section>
+
+<style>
+	/* ─── Section ───────────────────────────────────── */
+	.clients-section {
+		background: var(--color-surface);
+		padding: 2.5rem 0 3rem;
+		border-top: 1px solid var(--color-border);
+		overflow: hidden;
+	}
+
+	/* ─── Header ────────────────────────────────────── */
+	.clients-inner {
+		width: var(--content-width);
+		margin: 0 auto;
+		margin-bottom: 2.5rem;
+	}
+
+	.clients-header {
+		display: grid;
+		gap: 0.75rem;
+	}
+
+	.header-label {
+		display: flex;
+		align-items: center;
+		gap: 0.75rem;
+	}
+
+	.header-line {
+		width: 2.5rem;
+		height: 2px;
+		background: var(--color-primary);
+		flex-shrink: 0;
+	}
+
+	.eyebrow {
+		margin: 0;
+		color: var(--color-primary);
+		font-size: 0.8rem;
+		font-weight: 700;
+		letter-spacing: 0.18em;
+		text-transform: uppercase;
+	}
+
+	h2 {
+		margin: 0;
+		font-size: clamp(2rem, 3vw, 3.2rem);
+		line-height: 1.05;
+		color: var(--color-text);
+		font-weight: 800;
+		letter-spacing: -0.02em;
+	}
+
+	/* ─── Scrolling track ───────────────────────────── */
+	.track-wrapper {
+		width: 100%;
+		overflow: hidden;
+		/* Fade edges */
+		mask-image: linear-gradient(
+			to right,
+			transparent 0%,
+			black 8%,
+			black 92%,
+			transparent 100%
+		);
+		-webkit-mask-image: linear-gradient(
+			to right,
+			transparent 0%,
+			black 8%,
+			black 92%,
+			transparent 100%
+		);
+	}
+
+	.track {
+		display: flex;
+		align-items: center;
+		gap: 3rem;
+		width: max-content;
+		animation: scroll-logos 48s linear infinite;
+	}
+
+	.track:hover {
+		animation-play-state: paused;
+	}
+
+	@keyframes scroll-logos {
+		from { transform: translateX(0); }
+		to   { transform: translateX(-50%); }
+	}
+
+	/* ─── Logo item ─────────────────────────────────── */
+	.logo-item {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		flex-shrink: 0;
+		padding: 0.5rem 1rem;
+	}
+
+	.logo-item img {
+		height: 68px;
+		width: auto;
+		object-fit: contain;
+		display: block;
+		opacity: 0.75;
+		transition: opacity 0.3s ease;
+	}
+
+	.track:hover .logo-item img {
+		opacity: 1;
+	}
+</style>
