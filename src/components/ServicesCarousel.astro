@@ -1,108 +1,23 @@
 ---
-const slides = [
-	{
-		tag: 'Media y Baja Tensión',
-		title: 'Ingeniería en Media y Baja Tensión',
-		description:
-			'Planeación y ejecución experta para energizar tus proyectos industriales y residenciales.',
-		cta: 'Solicitar proyecto',
-		image:
-			'https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&w=1920&q=80',
-	},
-	{
-		tag: 'Gestión Regulatoria',
-		title: 'Trámites y Certificaciones',
-		description: 'Gestoría ante CFE y dictámenes UVIE bajo la NOM-001-SEDE.',
-		cta: 'Iniciar trámite',
-		image:
-			'https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=1920&q=80',
-	},
-	{
-		tag: 'Suministro Especializado',
-		title: 'Suministro Especializado',
-		description:
-			'Venta de material eléctrico, transformadores, postes y equipo de control bajo normas CFE.',
-		cta: 'Ver catálogo',
-		image:
-			'https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1920&q=80',
-	},
-	{
-		tag: 'Logística y Maniobras',
-		title: 'Logística y Maniobras',
-		description:
-			'Renta de grúas articuladas y servicio de fletes especializados para equipo pesado.',
-		cta: 'Solicitar servicio',
-		image:
-			'https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?auto=format&fit=crop&w=1920&q=80',
-	},
-	{
-		tag: 'Inspección Técnica',
-		title: 'Inspección Técnica y Mantenimiento',
-		description: 'Escaneo de redes eléctricas con cámara termográfica por medio de drones.',
-		cta: 'Agendar inspección',
-		image:
-			'https://images.unsplash.com/photo-1508614589041-895b88991e3e?auto=format&fit=crop&w=1920&q=80',
-	},
-];
 ---
 
 <section class="hero-carousel" id="servicios" aria-label="Servicios POWERLINE">
-	{slides.map((slide, index) => (
-		<article
-			class={`slide${index === 0 ? ' is-active' : ''}`}
-			aria-hidden={index !== 0 ? 'true' : 'false'}
-		>
-			<img
-				src={slide.image}
-				alt=""
-				width="1920"
-				height="900"
-				loading={index === 0 ? 'eager' : 'lazy'}
-			/>
-			<div class="slide-overlay" aria-hidden="true"></div>
-			<div class="slide-content">
-				<h1 class="slide-title">
-					<span class="title-headline">{slide.title}</span>
-					<span class="title-tagline">{slide.description}</span>
-				</h1>
-				<a class="slide-cta" href="#contacto">{slide.cta}</a>
-			</div>
-		</article>
-	))}
-
-	<button class="nav-btn nav-prev" aria-label="Slide anterior" type="button">
-		<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-			<polyline points="15 18 9 12 15 6"></polyline>
-		</svg>
-	</button>
-	<button class="nav-btn nav-next" aria-label="Slide siguiente" type="button">
-		<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-			<polyline points="9 18 15 12 9 6"></polyline>
-		</svg>
-	</button>
-
-	<div class="carousel-dots" role="tablist" aria-label="Navegación del carrusel">
-		{slides.map((slide, index) => (
-			<button
-				class={`dot${index === 0 ? ' is-active' : ''}`}
-				role="tab"
-				aria-selected={index === 0 ? 'true' : 'false'}
-				aria-label={`Ir al slide ${index + 1}: ${slide.title}`}
-				data-index={String(index)}
-				type="button"
-			></button>
-		))}
+	<img
+		src="/hero/bg2.png"
+		alt=""
+		loading="eager"
+	/>
+	<div class="slide-content">
+		<h1 class="slide-title">
+			<span class="title-headline">Ingeniería en Media y Baja Tensión</span>
+			<span class="title-tagline">Planeación y ejecución experta para energizar tus proyectos industriales y residenciales.</span>
+		</h1>
+		<a class="slide-cta" href="#contacto">Solicitar proyecto</a>
 	</div>
 </section>
 
 <style>
-	/* ─── Layout containers ─────────────────────────── */
-	.service-list {
-		width: var(--content-width);
-		margin: 0 auto;
-	}
-
-	/* ─── Hero carousel shell ───────────────────────── */
+	/* ─── Hero shell ────────────────────────────────── */
 	.hero-carousel {
 		position: relative;
 		width: 100%;
@@ -113,43 +28,26 @@ const slides = [
 		background: #050505;
 	}
 
-	/* ─── Slides ────────────────────────────────────── */
-	.slide {
-		position: absolute;
-		inset: 0;
-		opacity: 0;
-		transition: opacity 0.7s ease;
-	}
-
-	.slide.is-active {
-		opacity: 1;
-	}
-
-	.slide img {
+	.hero-carousel > img {
 		width: 100%;
 		height: 100%;
 		object-fit: cover;
 		object-position: center;
 	}
 
-	/* ─── Overlay ───────────────────────────────────── */
-	.slide-overlay {
-		position: absolute;
-		inset: 0;
-		background:
-			linear-gradient(to top, rgba(0, 0, 0, 0.88) 0%, rgba(0, 0, 0, 0.3) 48%, rgba(0, 0, 0, 0.08) 100%),
-			linear-gradient(to right, rgba(0, 0, 0, 0.62) 0%, rgba(0, 0, 0, 0) 55%);
-	}
-
 	/* ─── Slide content ─────────────────────────────── */
 	.slide-content {
 		position: absolute;
-		left: clamp(1rem, 4vw, 3rem);
-		right: 44%;
-		bottom: 4rem;
+		inset: 0;
 		z-index: 2;
-		display: grid;
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+		justify-content: center;
 		gap: 1.4rem;
+		padding: 0 clamp(1rem, 4vw, 3rem);
+		text-align: left;
+		max-width: 40%;
 	}
 
 	.slide-title {
@@ -160,7 +58,7 @@ const slides = [
 
 	.title-headline {
 		display: block;
-		font-size: clamp(2.2rem, 4vw, 3.8rem);
+		font-size: clamp(2.8rem, 6vw, 5.5rem);
 		font-weight: 800;
 		line-height: 1.06;
 		color: #fff;
@@ -198,98 +96,10 @@ const slides = [
 		outline: none;
 	}
 
-	/* ─── Navigation arrows ─────────────────────────── */
-	.nav-btn {
-		position: absolute;
-		top: 50%;
-		transform: translateY(-50%);
-		z-index: 10;
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		width: 3rem;
-		height: 3rem;
-		border-radius: 50%;
-		border: 1px solid rgba(255, 255, 255, 0.18);
-		background: rgba(0, 0, 0, 0.42);
-		color: #fff;
-		cursor: pointer;
-		transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
-	}
-
-	.nav-prev { left: clamp(1rem, 4vw, 3rem); }
-	.nav-next { right: clamp(1rem, 4vw, 3rem); }
-
-	.nav-btn:hover,
-	.nav-btn:focus-visible {
-		background: rgba(243, 88, 44, 0.55);
-		border-color: rgba(243, 88, 44, 0.65);
-		transform: translateY(-50%) scale(1.08);
-		outline: none;
-	}
-
-	/* ─── Dots ──────────────────────────────────────── */
-	.carousel-dots {
-		position: absolute;
-		bottom: 1.6rem;
-		right: clamp(1rem, 4vw, 3rem);
-		z-index: 10;
-		display: flex;
-		gap: 0.5rem;
-		align-items: center;
-	}
-
-	.dot {
-		width: 0.5rem;
-		height: 0.5rem;
-		border-radius: 999px;
-		border: none;
-		background: rgba(255, 255, 255, 0.38);
-		cursor: pointer;
-		padding: 0;
-		transition: width 0.3s ease, background-color 0.3s ease;
-	}
-
-	.dot.is-active {
-		width: 1.75rem;
-		background: var(--color-primary);
-	}
-
-	.eyebrow {
-		margin: 0;
-		color: var(--color-primary);
-		font-size: 0.85rem;
-		font-weight: 700;
-		letter-spacing: 0.14em;
-		text-transform: uppercase;
-	}
-
-	h2,
-	h3,
-	p {
-		margin: 0;
-	}
-
-	/* ─── Reduced motion ────────────────────────────── */
-	@media (prefers-reduced-motion: reduce) {
-		.slide {
-			transition: none;
-		}
-	}
-
 	/* ─── Responsive ────────────────────────────────── */
 	@media (max-width: 960px) {
 		.hero-carousel {
 			height: clamp(380px, 55vw, 520px);
-		}
-
-		.slide-content {
-			right: 8%;
-			bottom: 3.5rem;
-		}
-
-		.service-grid {
-			grid-template-columns: repeat(2, minmax(0, 1fr));
 		}
 	}
 
@@ -297,79 +107,5 @@ const slides = [
 		.hero-carousel {
 			height: clamp(320px, 75vw, 460px);
 		}
-
-		.slide-content {
-			right: clamp(1rem, 4vw, 3rem);
-			bottom: 3.25rem;
-		}
-
-		.carousel-dots {
-			right: 50%;
-			transform: translateX(50%);
-			bottom: 1.1rem;
-		}
-
-		.nav-btn {
-			display: none;
-		}
-	}
-
-	@media (max-width: 480px) {
-		.service-grid {
-			grid-template-columns: 1fr;
-		}
 	}
 </style>
-
-<script>
-	const hero = document.querySelector('.hero-carousel') as HTMLElement | null;
-
-	if (hero) {
-		const slides = Array.from(hero.querySelectorAll('.slide')) as HTMLElement[];
-		const dots = Array.from(hero.querySelectorAll('.dot')) as HTMLButtonElement[];
-		const prevBtn = hero.querySelector('.nav-prev') as HTMLButtonElement | null;
-		const nextBtn = hero.querySelector('.nav-next') as HTMLButtonElement | null;
-		const total = slides.length;
-		let current = 0;
-		let timer: ReturnType<typeof setInterval> | undefined;
-		const DELAY = 6000;
-
-		function goTo(index: number) {
-			slides[current].classList.remove('is-active');
-			slides[current].setAttribute('aria-hidden', 'true');
-			dots[current].classList.remove('is-active');
-			dots[current].setAttribute('aria-selected', 'false');
-
-			current = ((index % total) + total) % total;
-
-			slides[current].classList.add('is-active');
-			slides[current].setAttribute('aria-hidden', 'false');
-			dots[current].classList.add('is-active');
-			dots[current].setAttribute('aria-selected', 'true');
-		}
-
-		function stopAutoplay() {
-			clearInterval(timer);
-			timer = undefined;
-		}
-
-		function startAutoplay() {
-			stopAutoplay();
-			timer = setInterval(() => goTo(current + 1), DELAY);
-		}
-
-		prevBtn?.addEventListener('click', () => { goTo(current - 1); startAutoplay(); });
-		nextBtn?.addEventListener('click', () => { goTo(current + 1); startAutoplay(); });
-
-		dots.forEach((dot, i) => {
-			dot.addEventListener('click', () => { goTo(i); startAutoplay(); });
-		});
-
-		hero.addEventListener('mouseenter', stopAutoplay);
-		hero.addEventListener('mouseleave', startAutoplay);
-
-		if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-			startAutoplay();
-		}
-	}
-</script>
