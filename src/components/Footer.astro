@@ -6,7 +6,7 @@
 				<img src="/logo_powerline-white.svg" alt="POWERLINE MULTISERVICIOS" height="40" />
 			</a>
 			<p class="footer-tagline">
-				Instalaciones eléctricas con criterio técnico, ejecución coordinada y cumplimiento normativo.
+				Criterio técnico y ejecución experta en instalaciones eléctricas.
 			</p>
 		</div>
 
@@ -22,12 +22,7 @@
 					<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
 					<a href="mailto:contacto@powerlinemultiservicios.com">contacto@powerline.mx</a>
 				</li>
-				<li>
-					<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
-					<address> Domicilio conocido, Ejido Maclovio Herrera,<br />Hgo del Parral, Chih. 33818</address>
-				</li>
-				<li>
-					
+
 			<!-- Ubicacion column -->
 		<div class="footer-col footer-social-col">		
 				<h3 class="col-heading">Siguenos</h3>
@@ -63,9 +58,15 @@
 		<!-- Ubicacion column -->
 		<div class="footer-col footer-social-col">
 			<h3 class="col-heading">Ubicacion</h3>
+			<ul class="contact-list">
+				<li>
+					<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+					<address> Domicilio conocido, Ejido Maclovio Herrera,<br />Hgo del Parral, Chih. 33818</address>
+				</li>
 				<div class="map-container">
 						<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d7112.17318927591!2d-105.6584729492777!3d26.96415694612884!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x86945124fad23841%3A0xd0e1ae65767a71f4!2sPOWERLINE%20MULTISERVICIOS!5e0!3m2!1ses-419!2sus!4v1776920225802!5m2!1ses-419!2sus" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 				</div>
+			</ul>
 			</div>
 		</div>
 	</div>
@@ -87,10 +88,12 @@
 		width: var(--content-width);
 		margin: 0 auto;
 		display: grid;
-		grid-template-columns: 1.4fr 1.2fr 1fr 0.7fr;
-		gap: 3rem;
-		padding: 3.5rem 0 3rem;
+		grid-template-columns: repeat(4, 1fr); 
+		gap: 1rem;
+		padding: 1rem 0 1rem;
 	}
+
+    {/*grid-template-columns: 1.2fr 1fr 1.2fr 1fr;*/}
 
 	/* Brand */
 	.footer-brand {
@@ -106,9 +109,11 @@
 
 	.footer-tagline {
 		margin: 0;
-		line-height: 1.75;
-		max-width: 22ch;
-	}
+		line-height: 1.4;
+    	font-size: 0.85rem; /* Un pelín más pequeño que el resto */
+    	line-height: 1.4;   /* Da aire entre líneas para que sea fácil de leer */
+    	max-width: 260px;
+}
 
 	/* Column headings */
 	.col-heading {
@@ -267,7 +272,7 @@
 
 	/* Map Container */
 	.map-container {
-		aspect-ratio: 16 / 9;
+		aspect-ratio: 21 / 9;
 		width: 100%;
 		border-radius: 8px;
 		border: 1px solid #f3582c;
