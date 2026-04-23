@@ -26,6 +26,11 @@
 					<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
 					<address> Domicilio conocido, Ejido Maclovio Herrera,<br />Hgo del Parral, Chih. 33818</address>
 				</li>
+				<li>
+					<div class="map-container">
+						<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d7112.17318927591!2d-105.6584729492777!3d26.96415694612884!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x86945124fad23841%3A0xd0e1ae65767a71f4!2sPOWERLINE%20MULTISERVICIOS!5e0!3m2!1ses-419!2sus!4v1776920225802!5m2!1ses-419!2sus" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+					</div>
+				</li>
 			</ul>
 		</div>
 
@@ -255,5 +260,21 @@
 		.footer-inner {
 			grid-template-columns: 1fr;
 		}
+	}
+
+	/* Map Container */
+	.map-container {
+		aspect-ratio: 16 / 9;
+		width: 100%;
+		border-radius: 8px;
+		border: 1px solid #f3582c;
+		overflow: hidden;
+		filter: grayscale(0%) invert(0%) contrast(100%);
+	}
+
+	.map-container iframe {
+		width: 100%;
+		height: 100%;
+		border: none;
 	}
 </style>
