@@ -1,236 +1,72 @@
-<section class="valor-section" id="porque-elegirnos" aria-label="Porque elegirnos">
-  <div class="valor-inner">
-    <header class="valor-header">
+<section class="propuesta-section">
+  <div class="services-inner"> <!-- Esta línea es la que da el margen -->
+    <header class="services-header">
       <div class="header-label">
-        <span class="header-line" aria-hidden="true"></span>
-        <p class="eyebrow">¿Por qué elegirnos?</p>
+        <span class="header-line"></span>
+        <p class="eyebrow">¿POR QUÉ ELEGIRNOS?</p>
       </div>
-      <h2>Nuestra Propuesta de Valor</h2>
+      <h2>Acerca de nosotros</h2>
     </header>
+  </div>
+</section>
+
 
 <style>
-	/* ─── Section ───────────────────────────────────── */
-	.services-section {
-		background: var(--color-surface);
-		padding: 2.5rem 0 4rem;
-		border-top: 1px solid var(--color-border);
-	}
+	/* Asegura que el contenedor de arriba tenga el mismo ancho y margen que el de abajo */
+.services-inner {
+    width: var(--content-width);
+    margin: 0 auto;
+    padding: 0 1rem; /* Un poco de respiro lateral para móviles */
+}
 
-	/* ─── Container ─────────────────────────────────── */
-	.services-inner {
-		width: var(--content-width);
-		margin: 0 auto;
-		display: grid;
-		gap: 1.5rem;
-	}
+/* Fuerza a que todos los headers usen el mismo espaciado vertical */
+.services-header {
+    display: grid;
+    gap: 0.75rem;
+    margin-bottom: left; /* Espacio uniforme debajo del título */
+}
 
-	/* ─── Header ────────────────────────────────────── */
-	.services-header {
-		display: grid;
-		gap: 0.75rem;
-	}
+/* Estilo unificado para los h2 de las cabeceras */
+.services-header h2 {
+    margin: 0;
+    font-size: clamp(2rem, 3vw, 3.2rem);
+    line-height: 1.05;
+    font-weight: 800;
+    color: var(--color-text);
+}
 
-	.header-label {
-		display: flex;
-		align-items: center;
-		gap: 0.75rem;
-	}
+/* 2. Estilo para el subtítulo pequeño (¿POR QUÉ ELEGIRNOS? / LO QUE HACEMOS) */
+.header-label {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+	padding-top: 2rem;
+}
 
-	.header-line {
-		width: 2.5rem;
-		height: 2px;
-		background: var(--color-primary);
-		flex-shrink: 0;
-	}
+.header-line {
+    width: 2.5rem;
+    height: 2px;
+    background: var(--color-primary);
+    flex-shrink: 0;
+}
 
-	.eyebrow {
-		margin: 0;
-		color: var(--color-primary);
-		font-size: 0.8rem;
-		font-weight: 700;
-		letter-spacing: 0.18em;
-		text-transform: uppercase;
-	}
+.eyebrow {
+    margin: 0; /* Espacio vertical uniforme */
+    color: var(--color-primary);
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+}
 
-	h2 {
-		margin: 0;
-		font-size: clamp(2rem, 3vw, 3.2rem);
-		line-height: 1.05;
-		color: var(--color-text);
-		font-weight: 800;
-		letter-spacing: -0.02em;
-	}
-
-	/* ─── Grid ──────────────────────────────────────── */
-	.services-grid {
-		list-style: none;
-		margin: 0;
-		padding: 0;
-		display: grid;
-		grid-template-columns: repeat(5, 1fr);
-		grid-auto-rows: 540px;
-		gap: 0.6rem;
-	}
-
-	/* ─── Card ──────────────────────────────────────── */
-	.service-card {
-		position: relative;
-		overflow: hidden;
-		border-radius: 0.5rem;
-		cursor: default;
-	}
-
-	.service-card > img {
-		position: absolute;
-		inset: 0;
-		width: 100%;
-		height: 100%;
-		object-fit: cover;
-		transition: transform 0.55s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-	}
-
-	.service-card:hover > img {
-		transform: scale(1.06);
-	}
-
-	/* ─── Overlay — bottom only ────────────────────── */
-	.card-overlay {
-		position: absolute;
-		inset: 0;
-		background: linear-gradient(
-			to top,
-			rgba(0, 0, 0, 0.82) 0%,
-			rgba(0, 0, 0, 0.55) 35%,
-			rgba(0, 0, 0, 0) 60%
-		);
-		transition: background 0.35s ease;
-	}
-
-	.service-card:hover .card-overlay {
-		background: linear-gradient(
-			to top,
-			rgba(0, 0, 0, 0.88) 0%,
-			rgba(0, 0, 0, 0.6) 38%,
-			rgba(0, 0, 0, 0) 62%
-		);
-	}
-
-	/* ─── Content ───────────────────────────────────── */
-	.card-content {
-		position: absolute;
-		inset: 0;
-		z-index: 1;
-		display: flex;
-		flex-direction: column;
-		justify-content: flex-end;
-		padding: 1.1rem 1.2rem 1.4rem;
-	}
-
-	.card-num {
-		position: absolute;
-		top: 1.1rem;
-		left: 1.2rem;
-		font-size: 0.72rem;
-		font-weight: 700;
-		letter-spacing: 0.08em;
-		color: rgba(255, 255, 255, 0.4);
-	}
-
-	/* ─── Bottom block ──────────────────────────────── */
-	.card-bottom {
-		display: grid;
-		gap: 0.45rem;
-	}
-
-	h3 {
-		margin: 0;
-		font-size: clamp(1.2rem, 1.6vw, 1.55rem);
-		font-weight: 700;
-		line-height: 1.2;
-		color: #fff;
-	}
-
-	.card-desc {
-		margin: 0;
-		font-size: 0.875rem;
-		line-height: 1.55;
-		color: rgba(255, 255, 255, 0.65);
-		display: -webkit-box;
-		-webkit-line-clamp: 2;
-		-webkit-box-orient: vertical;
-		overflow: hidden;
-	}
-
-	/* ─── Actions row ──────────────────────────────── */
-	.card-actions {
-		display: flex;
-		align-items: center;
-		gap: 0.75rem;
-		margin-top: 0.5rem;
-		flex-wrap: wrap;
-	}
-
-	/* Primary CTA */
-	.card-cta {
-		display: inline-flex;
-		align-items: center;
-		gap: 0.4rem;
-		padding: 0.45rem 1rem;
-		font-size: 0.7rem;
-		font-weight: 700;
-		letter-spacing: 0.1em;
-		text-transform: uppercase;
-		color: #fff;
-		background: var(--color-primary);
-		border-radius: 0.25rem;
-		text-decoration: none;
-		transition: background-color 0.2s ease, gap 0.2s ease;
-		flex-shrink: 0;
-	}
-
-	.card-cta:hover {
-		background: #d9441c;
-		gap: 0.65rem;
-	}
-
-	/* Ghost CTA */
-	.card-more {
-		font-size: 0.7rem;
-		font-weight: 700;
-		letter-spacing: 0.08em;
-		text-transform: uppercase;
-		color: rgba(255, 255, 255, 0.7);
-		text-decoration: none;
-		border-bottom: 1px solid rgba(255, 255, 255, 0.35);
-		padding-bottom: 1px;
-		transition: color 0.2s ease, border-color 0.2s ease;
-		flex-shrink: 0;
-	}
-
-	.card-more:hover {
-		color: #fff;
-		border-color: #fff;
-	}
-
-	/* ─── Responsive ────────────────────────────────── */
-	@media (max-width: 1024px) {
-		.services-grid {
-			grid-template-columns: repeat(3, 1fr);
-			grid-auto-rows: 360px;
-		}
-
-		.service-card:nth-child(4) { grid-column: 1 / 2; }
-		.service-card:nth-child(5) { grid-column: 2 / 3; }
-	}
-
-	@media (max-width: 640px) {
-		.services-grid {
-			grid-template-columns: 1fr 1fr;
-			grid-auto-rows: 300px;
-		}
-
-		.service-card:nth-child(4),
-		.service-card:nth-child(5) { grid-column: unset; }
-		.service-card:nth-child(5) { grid-column: 1 / -1; }
-	}
+/* 3. Estilo para los títulos grandes (Propuesta de Valor / Nuestros Servicios) */
+.services-header h2 {
+    margin: 0;
+    font-size: clamp(2rem, 3vw, 3.2rem);
+    line-height: 1.05;
+    color: var(--color-text);
+    font-weight: 800;
+    letter-spacing: -0.02em;
+	padding-bottom: 2rem;
+}
 </style>
