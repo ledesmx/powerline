@@ -1,0 +1,72 @@
+<section class="propuesta-section">
+  <div class="services-inner"> <!-- Esta línea es la que da el margen -->
+    <header class="services-header">
+      <div class="header-label">
+        <span class="header-line"></span>
+        <p class="eyebrow">¿POR QUÉ ELEGIRNOS?</p>
+      </div>
+      <h2>Acerca de nosotros</h2>
+    </header>
+  </div>
+</section>
+
+
+<style>
+	/* Asegura que el contenedor de arriba tenga el mismo ancho y margen que el de abajo */
+.services-inner {
+    width: var(--content-width);
+    margin: 0 auto;
+    padding: 0 1rem; /* Un poco de respiro lateral para móviles */
+}
+
+/* Fuerza a que todos los headers usen el mismo espaciado vertical */
+.services-header {
+    display: grid;
+    gap: 0.75rem;
+    margin-bottom: left; /* Espacio uniforme debajo del título */
+}
+
+/* Estilo unificado para los h2 de las cabeceras */
+.services-header h2 {
+    margin: 0;
+    font-size: clamp(2rem, 3vw, 3.2rem);
+    line-height: 1.05;
+    font-weight: 800;
+    color: var(--color-text);
+}
+
+/* 2. Estilo para el subtítulo pequeño (¿POR QUÉ ELEGIRNOS? / LO QUE HACEMOS) */
+.header-label {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+	padding-top: 2rem;
+}
+
+.header-line {
+    width: 2.5rem;
+    height: 2px;
+    background: var(--color-primary);
+    flex-shrink: 0;
+}
+
+.eyebrow {
+    margin: 0; /* Espacio vertical uniforme */
+    color: var(--color-primary);
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+}
+
+/* 3. Estilo para los títulos grandes (Propuesta de Valor / Nuestros Servicios) */
+.services-header h2 {
+    margin: 0;
+    font-size: clamp(2rem, 3vw, 3.2rem);
+    line-height: 1.05;
+    color: var(--color-text);
+    font-weight: 800;
+    letter-spacing: -0.02em;
+	padding-bottom: 2rem;
+}
+</style>
