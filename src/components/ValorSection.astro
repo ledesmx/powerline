@@ -1,98 +1,12 @@
----
-const services = [
-	{
-		number: '01',
-		tag: 'Media y Baja Tensión',
-		title: 'Ingeniería en Media y Baja Tensión',
-		description:
-			'Planeación y ejecución experta para energizar proyectos industriales y residenciales.',
-		cta: 'Solicitar proyecto',
-		image:
-			'https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&w=800&q=80',
-	},
-	{
-		number: '02',
-		tag: 'Gestión Regulatoria',
-		title: 'Trámites y Certificaciones',
-		description: 'Gestoría ante CFE y dictámenes UVIE bajo la NOM-001-SEDE.',
-		cta: 'Iniciar trámite',
-		image:
-			'https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=800&q=80',
-	},
-	{
-		number: '03',
-		tag: 'Suministro Especializado',
-		title: 'Suministro Especializado',
-		description:
-			'Venta de material eléctrico, transformadores, postes y equipo de control bajo normas CFE.',
-		cta: 'Ver catálogo',
-		image:
-			'https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=800&q=80',
-	},
-	{
-		number: '04',
-		tag: 'Logística y Maniobras',
-		title: 'Logística y Maniobras de Gruas',
-		description:
-			'Renta de grúas articuladas y fletes especializados para equipo pesado.',
-		cta: 'Solicitar servicio',
-		image:
-			'https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?auto=format&fit=crop&w=800&q=80',
-	},
-	{
-		number: '05',
-		tag: 'Inspección Técnica',
-		title: 'Inspección Técnica y Mantenimiento',
-		description: 'Escaneo de redes eléctricas con cámara termográfica por medio de drones.',
-		cta: 'Agendar inspección',
-		image:
-			'https://images.unsplash.com/photo-1508614589041-895b88991e3e?auto=format&fit=crop&w=800&q=80',
-	},
-];
----
-
-<section class="services-section" id="nuestros-servicios" aria-label="Nuestros servicios">
-	<div class="services-inner">
-
-		<header class="services-header">
-			<div class="header-label">
-				<span class="header-line" aria-hidden="true"></span>
-				<p class="eyebrow">Lo que hacemos</p>
-			</div>
-			<h2>Algunos de nuestros servicios</h2>
-		</header>
-
-		<ul class="services-grid" role="list">
-			{services.map((service) => (
-				<li class="service-card">
-					<img
-						src={service.image}
-						alt={service.title}
-						width="800"
-						height="600"
-						loading="lazy"
-					/>
-					<div class="card-overlay" aria-hidden="true"></div>
-					<div class="card-content">
-						<span class="card-num" aria-hidden="true">{service.number}</span>
-						<div class="card-bottom">
-							<h3>{service.title}</h3>
-							<p class="card-desc">{service.description}</p>
-							<div class="card-actions">
-								<a class="card-cta" href="#contacto" aria-label={`${service.cta} — ${service.title}`}>
-									<span>{service.cta}</span>
-									<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-								</a>
-								<a class="card-more" href="#contacto" aria-label={`Saber más sobre ${service.title}`}>Saber más</a>
-							</div>
-						</div>
-					</div>
-				</li>
-			))}
-		</ul>
-
-	</div>
-</section>
+<section class="valor-section" id="porque-elegirnos" aria-label="Porque elegirnos">
+  <div class="valor-inner">
+    <header class="valor-header">
+      <div class="header-label">
+        <span class="header-line" aria-hidden="true"></span>
+        <p class="eyebrow">¿Por qué elegirnos?</p>
+      </div>
+      <h2>Nuestra Propuesta de Valor</h2>
+    </header>
 
 <style>
 	/* ─── Section ───────────────────────────────────── */
