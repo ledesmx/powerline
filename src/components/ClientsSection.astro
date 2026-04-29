@@ -19,7 +19,7 @@ const clients = [
 ];
 ---
 
-<section class="clients-section" aria-label="Clientes que confían en nosotros">
+<section class="clients-section" id="clientes" aria-label="Clientes que confían en nosotros">
 	<div class="clients-inner">
 		<header class="clients-header">
 			<div class="header-label">
@@ -58,6 +58,10 @@ const clients = [
 </section>
 
 <style>
+	section[id] {
+  scroll-margin-top: 40px; /* Permite un margen de vista al hacer clic en el navbar*/
+}
+
 	/* ─── Section ───────────────────────────────────── */
 	.clients-section {
 		background: var(--color-surface);
