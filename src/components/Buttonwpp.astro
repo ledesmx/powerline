@@ -1,0 +1,248 @@
+---
+const phoneNumber = "528715119552";
+const initialMsg = "Hola Multiservicios Powerline, vi su pagina y me intereso preguntar por uno de sus servicios!";
+const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(initialMsg)}`;
+---
+
+<div class="wp-widget-container">
+  <div class="wp-chat-window" id="wpChatWindow">
+    <div class="wp-header">
+      <div class="wp-avatar">
+        <img src="/logo_powerline-white.svg" alt="Ing. Daniel Ortega" />
+        <span class="online-badge"></span>
+      </div>
+      <div class="wp-user-info">
+        <span class="wp-name">Ing. Daniel Ortega</span>
+        <span class="wp-status">En línea</span>
+      </div>
+      <button class="wp-close" id="closeChat" aria-label="Cerrar chat">&times;</button>
+    </div>
+
+    <div class="wp-body">
+      <div class="wp-bubble">
+        Hola 👋 ¿Cómo podemos ayudarte con tu proyecto eléctrico?
+      </div>
+    </div>
+
+    <div class="wp-footer">
+      <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" class="wp-send-btn">
+        <span>Escribir mensaje...</span>
+        <svg viewBox="0 0 24 24" width="20" height="20">
+          <path fill="currentColor" d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/>
+        </svg>
+      </a>
+    </div>
+  </div>
+
+  <button class="wp-launcher" id="wpLauncher" aria-label="Abrir chat de WhatsApp">
+    <span class="wp-notification-badge" id="wpBadge">1</span>
+    
+    <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 24 24" fill="white">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.423.248-.703.248-1.312.174-1.423-.074-.113-.272-.162-.57-.311zM12 0C5.373 0 0 5.373 0 12c0 2.101.543 4.074 1.493 5.794L.057 24l6.305-1.654C8.049 23.3 10.01 23.8 12 23.8c6.627 0 12-5.373 12-11.8c0-6.627-5.373-12-12-12zm.003 21.812c-1.9 0-3.758-.485-5.399-1.4l-.387-.218-4.005 1.051 1.069-3.904-.239-.38c-1.008-1.603-1.54-3.468-1.54-5.381 0-5.462 4.448-9.91 9.914-9.91 2.648 0 5.138 1.031 7.009 2.902 1.871 1.871 2.901 4.361 2.901 7.008.001 5.465-4.446 9.912-9.913 9.912z"/>
+    </svg>
+  </button>
+</div>
+
+<style>
+  .wp-widget-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 10000;
+    font-family: system-ui, -apple-system, sans-serif;
+  }
+
+  /* Ventana de Chat */
+  .wp-chat-window {
+    width: 300px;
+    background: #f0f2f5;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    margin-bottom: 15px;
+    overflow: hidden;
+    display: none; /* Se activa con JS */
+    flex-direction: column;
+    animation: slideUp 0.3s ease-out;
+  }
+
+  .wp-chat-window.active { display: flex; }
+
+  /* Encabezado */
+  .wp-header {
+    background: #075e54;
+    color: white;
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    position: relative;
+  }
+
+  .wp-avatar { position: relative; width: 40px; height: 40px; }
+  .wp-avatar img { width: 100%; height: 100%; border-radius: 50%; object-fit: contain; background: #0b3d37; }
+  .online-badge {
+    position: absolute; bottom: 0; right: 0;
+    width: 10px; height: 10px;
+    background: #4cd137; border-radius: 50%; border: 2px solid #075e54;
+  }
+
+  .wp-user-info { display: flex; flex-direction: column; }
+  .wp-name { font-weight: bold; font-size: 15px; }
+  .wp-status { font-size: 12px; opacity: 0.8; }
+  
+  .wp-close { 
+    position: absolute; right: 10px; top: 10px; 
+    background: none; border: none; color: white; 
+    font-size: 24px; cursor: pointer; 
+  }
+
+  /* Cuerpo del chat */
+  .wp-body {
+    padding: 20px;
+    background-image: url('https://user-images.githubusercontent.com/15075759/28719144-86dc0f70-73b1-11e7-911d-60d70fcded21.png'); /* Pattern oficial WP */
+    background-size: contain;
+    height: 120px;
+  }
+
+  .wp-bubble {
+    background: white;
+    padding: 10px 15px;
+    border-radius: 0 15px 15px 15px;
+    font-size: 14px;
+    color: #333;
+    max-width: 90%;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  }
+
+  /* Botón de envío */
+  .wp-footer { padding: 10px; background: white; }
+  .wp-send-btn {
+    display: flex; align-items: center; justify-content: space-between;
+    background: #f0f2f5; color: #666;
+    padding: 10px 15px; border-radius: 20px;
+    text-decoration: none; font-size: 14px;
+    transition: 0.3s;
+  }
+  .wp-send-btn:hover { background: #e4e6eb; }
+
+  /* Launcher circular */
+  .wp-launcher {
+    position: relative;
+    width: 60px;
+    height: 60px;
+    background: #25d366;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    float: right;
+    transition: transform 0.3s;
+    /* Animación de latido sutil */
+    animation: pulse-green 2s infinite;
+  }
+  @keyframes slideUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* El círculo rojo de "1 mensaje nuevo" */
+  .wp-notification-badge {
+    position: absolute;
+    top: -2px;
+    right: -2px;
+    width: 22px;
+    height: 22px;
+    background-color: #ff3b30;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: bold;
+    border: 2px solid white;
+    animation: bounce-in 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  }
+
+  /* Ocultar badge cuando el chat está abierto */
+  .wp-chat-window.active ~ .wp-launcher .wp-notification-badge {
+    display: none;
+  }
+
+  /* Animación de pulso para el botón verde */
+  @keyframes pulse-green {
+    0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+    70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+  }
+
+  /* Animación de entrada para el badge rojo */
+  @keyframes bounce-in {
+    0% { transform: scale(0); }
+    100% { transform: scale(1); }
+  }
+  /* ... (Tus estilos anteriores de .wp-widget-container se mantienen) ... */
+
+  .wp-chat-window {
+    width: 300px;
+    background: #f0f2f5;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    margin-bottom: 15px;
+    overflow: hidden;
+    display: none; /* Oculto por defecto */
+    flex-direction: column;
+    animation: slideUp 0.3s ease-out;
+  }
+
+  /* ESTADO ACTIVO: Esta clase manda sobre todo */
+  .wp-chat-window.active { 
+    display: flex !important; 
+  }
+
+  /* ESCRITORIO: Abierto por defecto solo si NO tiene la clase "closed-manually" */
+  @media (min-width: 1024px) {
+    .wp-chat-window:not(.closed-manually) {
+      display: flex;
+    }
+  }
+
+  /* ... (El resto de tus estilos: header, body, launcher) ... */
+</style>
+
+<script>
+  const launcher = document.getElementById('wpLauncher');
+  const chatWindow = document.getElementById('wpChatWindow');
+  const closeBtn = document.getElementById('closeChat');
+  const badge = document.getElementById('wpBadge');
+
+  // Función para abrir/alternar el chat
+  launcher?.addEventListener('click', () => {
+    // 1. Quitamos la marca de cerrado manual para que responda al clic
+    chatWindow?.classList.remove('closed-manually');
+    
+    // 2. Abrimos o cerramos la ventana
+    chatWindow?.classList.toggle('active');
+
+    // 3. Si el badge de notificación existe, lo ocultamos para siempre al primer clic
+    if (badge) {
+      badge.style.display = 'none';
+    }
+  });
+
+  // Función para cerrar la ventana
+  closeBtn?.addEventListener('click', (e) => {
+    // Evita que el evento "suba" al launcher y vuelva a abrir el chat accidentalmente
+    e.stopPropagation(); 
+    
+    chatWindow?.classList.remove('active');
+    
+    // Lógica para escritorio: si el usuario cierra, recordamos que no lo quiere abierto
+    if (window.innerWidth >= 1024) {
+      chatWindow?.classList.add('closed-manually');
+    }
+  });
+</script>
