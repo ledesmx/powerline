@@ -5,14 +5,17 @@ interface Props {
 }
 
 const {
-	title = 'POWERLINE MULTISERVICIOS | Instalaciones electricas',
-	description = 'Instalaciones electricas, suministro de material, tramites ante CFE y verificaciones para proyectos de media y baja tension.',
+  title = 'POWERLINE MULTISERVICIOS | Instalaciones eléctricas',
+  description = 'Expertos en instalaciones eléctricas residenciales e industriales en Parral y la región. Especialistas en estructuras de CFE, media y baja tensión. ¡Cotiza con nosotros!',
 } = Astro.props;
 ---
 
 <!doctype html>
 <html lang="es">
 	<head>
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content={description} />
+		<meta property="og:image" content="/powerline-multiservicios.png" />
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
