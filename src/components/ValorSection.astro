@@ -1,4 +1,4 @@
-<section class="propuesta-section">
+<section class="propuesta-section" id="Acercade" aria-label="Acerca de nosotros">
   <div class="services-inner"> <!-- Esta línea es la que da el margen -->
     <header class="services-header">
       <div class="header-label">
@@ -19,7 +19,7 @@
             Llevamos la energía de media y baja tensión a tus proyectos con precisión técnica y cumplimiento total.</p>
         
         <div class="exp-box">
-          <p><strong>+12 años de experiencia</strong> transformando planos en infraestructura real aprobada por CFE.</p>
+          <p><strong>+12 años de experiencia</strong>Transformando planos en infraestructura real aprobada por CFE.</p>
         </div>
         
         <a href="#proyectos" class="btn-cta">MIRA NUESTROS PROYECTOS</a>
@@ -27,7 +27,7 @@
 
       <div class="about-col">
         <div class="img-frame main-frame">
-          <img src="/MrChao.jpeg" alt="Ingeniero Powerline" />
+          <img src="/Acercade5.jpeg" alt="Ingeniero Powerline" />
           <span class="badge">NOM-001-SEDE</span>
         </div>
       </div>
@@ -37,14 +37,14 @@
         <p class="about-desc">Modelo basado en transparencia total: tú pagas por la ingeniería, nosotros garantizamos la aprobación.</p>
         
         <ul class="check-list">
-          <li><span>✓</span> Diseño e ingenieria de tus instalaciones.</li>
+          <li><span>✓</span> Diseño con ingenieria de tus instalaciones.</li>
           <li><span>✓</span> Gestión de trámites ante CFE.</li>
           <li><span>✓</span> Suministro de equipo, herramientas y materiales.</li>
           <li><span>✓</span> Verificación UVIE con la mayor rapidez</li>
         </ul>
 
         <div class="img-frame mini-frame">
-          <img src="/Fracc3.jpeg" alt="Proyecto Powerline" />
+          <img src="/Acercade2.jpeg" alt="Proyecto Powerline" />
         </div>
       </div>
 
@@ -54,6 +54,10 @@
 
 
 <style>
+section[id] {
+  scroll-margin-top: 60px; /* Permite un margen de vista al hacer clic en el navbar*/
+}
+
 	/* Asegura que el contenedor de arriba tenga el mismo ancho y margen que el de abajo */
 .services-inner {
     width: var(--content-width);
@@ -65,17 +69,18 @@
 .services-header {
     display: grid;
     gap: 0.75rem;
-    margin-bottom: left; /* Espacio uniforme debajo del título */
 }
 
-/* Estilo unificado para los h2 de las cabeceras */
+/* 3. Estilo para los títulos grandes (Propuesta de Valor / Acerca de nosotros) */ 
 .services-header h2 {
-    margin: 0;
-    padding-bottom: 0.5rem; /* Espacio debajo del título */
     font-size: clamp(2rem, 3vw, 3.2rem);
     line-height: 1.05;
-    font-weight: 800;
     color: var(--color-text);
+    margin: 0;
+    line-height: 1.05;
+    color: var(--color-text);
+    font-weight: 800;
+    letter-spacing: -0.02em;
 }
 
 /* 2. Estilo para el subtítulo pequeño (¿POR QUÉ ELEGIRNOS? / LO QUE HACEMOS) */
@@ -100,17 +105,6 @@
     font-weight: 700;
     letter-spacing: 0.18em;
     text-transform: uppercase;
-}
-
-/* 3. Estilo para los títulos grandes (Propuesta de Valor / Nuestros Servicios) */
-.services-header h2 {
-    margin: 0;
-    font-size: clamp(2rem, 3vw, 3.2rem);
-    line-height: 1.05;
-    color: var(--color-text);
-    font-weight: 800;
-    letter-spacing: -0.02em;
-	padding-bottom: 2rem;
 }
 
   /* ─── CONTENEDORES GLOBALES (Mantener) ─── */
