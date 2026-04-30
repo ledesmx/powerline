@@ -68,9 +68,13 @@
 	}
 
     .site-header.scrolled .site-nav a {
-        color: var(--color-text); /* Color normal al bajar */
-		text-shadow: none; /* Quita la sombra cuando el fondo es blanco */
+        color: var(--color-text);
+		text-shadow: none;
     }
+
+	.site-header.scrolled .site-nav a.nav-cta {
+		color: #fff;
+	}
 
 	.site-nav {
 		display: flex;
@@ -117,7 +121,6 @@
 	.site-nav a.nav-cta:focus-visible {
 		color: #fff;
 		background: #d9461a;
-		transform: translateY(-1px);
 	}
 
 	@media (max-width: 720px) {

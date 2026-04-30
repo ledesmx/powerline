@@ -22,7 +22,7 @@
           <p><strong>+12 años de experiencia</strong>Transformando planos en infraestructura real aprobada por CFE.</p>
         </div>
         
-        <a href="#proyectos" class="btn-cta">MIRA NUESTROS PROYECTOS</a>
+        <a href="#proyectos" class="btn-cta">VER PROYECTOS</a>
       </div>
 
       <div class="about-col">
@@ -233,22 +233,25 @@ section[id] {
   }
 
   /* Botón */
-  .btn-cta {
-    display: inline-block;
+  a.btn-cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     background: var(--color-primary, #ff8a00);
-    color: #000;
-    padding: 1rem 2.5rem;
-    font-weight: 800;
+    color: #fff !important;
+    padding: 0.55rem 1.1rem;
+    font-weight: 700;
+    font-size: 1rem;
+    letter-spacing: 0.06em;
     text-decoration: none;
-    border-radius: 6px;
-    transition: all 0.3s ease;
+    border-radius: 4px;
+    transition: background-color 0.2s ease;
     text-transform: uppercase;
-    letter-spacing: 0.05em;
   }
 
-  .btn-cta:hover {
-    background: #fff;
-    transform: scale(1.05);
+  a.btn-cta:hover {
+    background: #d9461a;
+    color: #fff !important;
   }
 
   /* Responsive Móvil */
