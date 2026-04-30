@@ -7,7 +7,8 @@
 			</a>
 			<p class="footer-tagline">
 				Criterio técnico y ejecución experta en instalaciones eléctricas.
-			</p><p><p><p></p>© 2025 POWERLINE MULTISERVICIOS. Todos los derechos reservados.</p>
+			</p>
+			<p class="footer-copy">© 2026 POWERLINE MULTISERVICIOS. Todos los derechos reservados.</p>
 		</div>
 
 		<!-- Contact column -->
@@ -56,21 +57,21 @@
 		</div>
 
 		<!-- Ubicacion column -->
-		<div class="footer-col footer-social-col">
-			<h3 class="col-heading">Ubicacion</h3>
-			<ul class="contact-list">
-				<li>
-					<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
-					<address> Domicilio conocido, Ejido Maclovio Herrera, Santa Rosa<br />Hgo del Parral, Chih. 33818, Atras de los campos 40/60</address>
-				</li>
+		<div class="footer-col footer-ubicacion">
+			<h3 class="col-heading">Ubicación</h3>
+			<div class="ubicacion-body">
+				<ul class="contact-list">
+					<li>
+						<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+						<address> Domicilio conocido, Ejido Maclovio Herrera, Santa Rosa<br />Hgo del Parral, Chih. 33818, Atras de los campos 40/60</address>
+					</li>
+				</ul>
 				<div class="map-container">
-						<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d7112.17318927591!2d-105.6584729492777!3d26.96415694612884!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x86945124fad23841%3A0xd0e1ae65767a71f4!2sPOWERLINE%20MULTISERVICIOS!5e0!3m2!1ses-419!2sus!4v1776920225802!5m2!1ses-419!2sus" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+					<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d7112.17318927591!2d-105.6584729492777!3d26.96415694612884!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x86945124fad23841%3A0xd0e1ae65767a71f4!2sPOWERLINE%20MULTISERVICIOS!5e0!3m2!1ses-419!2sus!4v1776920225802!5m2!1ses-419!2sus" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 				</div>
-			</ul>
 			</div>
 		</div>
 	</div>
-
 </footer>
 
 <style>
@@ -94,6 +95,13 @@
 		display: flex;
 		flex-direction: column;
 		gap: 1.1rem;
+	}
+
+	.footer-copy {
+		margin: -0.5rem 0 0;
+		font-size: 0.78rem;
+		color: rgba(255, 255, 255, 0.35);
+		line-height: 1.4;
 	}
 
 	.footer-logo img {
@@ -248,15 +256,31 @@
 
 		.footer-brand {
 			grid-column: 1 / -1;
+			order: 10;
 		}
 
 		.footer-tagline {
 			max-width: none;
 		}
+
+		.footer-ubicacion {
+			grid-column: 1 / -1;
+		}
+
+		.ubicacion-body {
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+			gap: 2rem;
+			align-items: start;
+		}
 	}
 
 	@media (max-width: 560px) {
 		.footer-inner {
+			grid-template-columns: 1fr;
+		}
+
+		.ubicacion-body {
 			grid-template-columns: 1fr;
 		}
 	}
