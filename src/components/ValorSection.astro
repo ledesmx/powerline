@@ -28,7 +28,6 @@
       <div class="about-col">
         <div class="img-frame main-frame">
           <img src="/Acercade5.jpeg" alt="Ingeniero Powerline" />
-          <span class="badge">NOM-001-SEDE</span>
         </div>
       </div>
 
@@ -193,6 +192,7 @@ section[id] {
 
   /* Imágenes */
   .img-frame {
+    position: relative;
     border-radius: 20px;
     overflow: hidden;
     box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
@@ -219,7 +219,9 @@ section[id] {
   .badge {
     position: absolute;
     bottom: 1.5rem;
-    right: 1.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    white-space: nowrap;
     background: rgba(0,0,0,0.8);
     backdrop-filter: blur(4px);
     color: #fff;
