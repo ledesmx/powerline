@@ -120,19 +120,44 @@ const propsValor = [
   }
 
   /* Responsividad */
+  /* medium: 2 columnas, tamaño compacto */
   @media (max-width: 1024px) {
     .contenedor-grid {
       grid-template-columns: repeat(2, 1fr);
     }
+    .tarjeta-columna:last-child {
+      grid-column: 1 / -1;
+    }
+    .tarjeta-columna {
+      min-height: auto;
+      padding: 1.25rem 1.25rem;
+    }
+    .icono {
+      width: 28px;
+      height: 28px;
+      margin-bottom: 0.6rem;
+    }
+    h3 {
+      font-size: 0.95rem;
+      margin-bottom: 0.4rem;
+    }
+    p {
+      font-size: 0.82rem;
+    }
+    .badge {
+      font-size: 0.6rem;
+      padding: 0.25rem 0.55rem;
+    }
   }
 
+  /* small: 1 columna, tamaño compacto también */
   @media (max-width: 640px) {
     .contenedor-grid {
       grid-template-columns: 1fr;
     }
     .tarjeta-columna {
       min-height: auto;
-      padding: 3rem 1.5rem;
+      padding: 1.25rem 1.25rem;
     }
   }
 </style>
