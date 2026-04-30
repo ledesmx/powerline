@@ -194,27 +194,33 @@ section[id] {
   /* Imágenes */
   .img-frame {
     position: relative;
-    border-radius: 20px;
+    border-radius: 0.75rem;
     overflow: hidden;
     box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
-    transition: transform 0.3s ease;
   }
 
-  .img-frame:hover {
-    transform: translateY(-5px);
+  .img-frame img {
+    transition: transform 0.55s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+
+  .img-frame:hover img {
+    transform: scale(1.06);
   }
 
   .main-frame img {
     width: 100%;
-    height: 650px; /* Altura para la foto de la canastilla */
+    height: 650px;
     object-fit: cover;
+  }
+
+  .mini-frame {
+    margin-top: 2rem;
   }
 
   .mini-frame img {
     width: 100%;
     height: 280px;
     object-fit: cover;
-    margin-top: 2rem;
   }
 
   .badge {
