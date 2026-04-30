@@ -132,6 +132,12 @@ const projects = [
 		gap: 0.75rem;
 	}
 
+	@media (max-width: 1024px) {
+		.header-label {
+			justify-content: center;
+		}
+	}
+
 	.header-line {
 		width: 2.5rem;
 		height: 2px;
@@ -321,16 +327,24 @@ const projects = [
 			grid-column: 1 / -1;
 			grid-row: auto;
 		}
+
+		.project-card:last-child {
+			grid-column: 1 / -1;
+		}
 	}
 
 	@media (max-width: 600px) {
 		.projects-section {
-			padding: 3.5rem 0;
+			padding: 0.5rem 0 2.5rem;
 		}
 
 		.projects-bento {
 			grid-template-columns: 1fr;
 			grid-auto-rows: 240px;
+		}
+
+		.project-card:last-child {
+			grid-column: auto;
 		}
 	}
 </style>
