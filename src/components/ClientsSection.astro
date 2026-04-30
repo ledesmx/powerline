@@ -20,29 +20,53 @@ const clients = [
 ---
 
 <section class="clients-section" id="clientes" aria-label="Clientes que confían en nosotros">
-	<div class="track-wrapper" aria-hidden="true">
+	<!-- Desktop: single scrolling row -->
+	<div class="track-wrapper desktop-track" aria-hidden="true">
 		<div class="track">
 			{clients.map((client) => (
 				<div class="logo-item">
-					<img
-						src={`/clients/${client.file}`}
-						alt={client.name}
-						height="48"
-						loading="lazy"
-					/>
+					<img src={`/clients/${client.file}`} alt={client.name} height="48" loading="lazy" />
 				</div>
 			))}
-			{/* Duplicate for seamless loop */}
 			{clients.map((client) => (
 				<div class="logo-item" aria-hidden="true">
-					<img
-						src={`/clients/${client.file}`}
-						alt=""
-						height="48"
-						loading="lazy"
-					/>
+					<img src={`/clients/${client.file}`} alt="" height="48" loading="lazy" />
 				</div>
 			))}
+		</div>
+	</div>
+
+	<!-- Mobile: two rows -->
+	<div class="mobile-rows" aria-hidden="true">
+		<!-- Row 1: first 8 logos, right to left -->
+		<div class="track-wrapper">
+			<div class="track track-rtl">
+				{clients.slice(0, 8).map((client) => (
+					<div class="logo-item">
+						<img src={`/clients/${client.file}`} alt={client.name} height="40" loading="lazy" />
+					</div>
+				))}
+				{clients.slice(0, 8).map((client) => (
+					<div class="logo-item" aria-hidden="true">
+						<img src={`/clients/${client.file}`} alt="" height="40" loading="lazy" />
+					</div>
+				))}
+			</div>
+		</div>
+		<!-- Row 2: last 8 logos, left to right -->
+		<div class="track-wrapper">
+			<div class="track track-ltr">
+				{clients.slice(8).map((client) => (
+					<div class="logo-item">
+						<img src={`/clients/${client.file}`} alt={client.name} height="40" loading="lazy" />
+					</div>
+				))}
+				{clients.slice(8).map((client) => (
+					<div class="logo-item" aria-hidden="true">
+						<img src={`/clients/${client.file}`} alt="" height="40" loading="lazy" />
+					</div>
+				))}
+			</div>
 		</div>
 	</div>
 </section>
@@ -129,16 +153,42 @@ const clients = [
 		align-items: center;
 		gap: 3rem;
 		width: max-content;
-		animation: scroll-logos 48s linear infinite;
+		animation: scroll-rtl 48s linear infinite;
 	}
 
 	.track:hover {
 		animation-play-state: paused;
 	}
 
-	@keyframes scroll-logos {
+	@keyframes scroll-rtl {
 		from { transform: translateX(0); }
 		to   { transform: translateX(-50%); }
+	}
+
+	@keyframes scroll-ltr {
+		from { transform: translateX(-50%); }
+		to   { transform: translateX(0); }
+	}
+
+	.track-rtl { animation: scroll-rtl 28s linear infinite; }
+	.mobile-rows .track-ltr { animation: scroll-ltr 28s linear infinite; }
+
+	/* Desktop: show single row, hide mobile rows */
+	.mobile-rows { display: none; }
+
+	@media (max-width: 767px) {
+		.desktop-track { display: none !important; }
+		.mobile-rows {
+			display: flex;
+			flex-direction: column;
+			gap: 1rem;
+		}
+		.track {
+			gap: 2rem;
+		}
+		.logo-item img {
+			height: 44px;
+		}
 	}
 
 	/* ─── Logo item ─────────────────────────────────── */
