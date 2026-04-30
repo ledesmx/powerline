@@ -6,7 +6,7 @@
 
 		<nav class="site-nav" aria-label="Principal">
 			<a href="#inicio">Inicio</a>
-			<a href="#Acercade">Acerca de nosotros</a>
+			<a href="#Acercade">Nosotros</a>
 			<a href="#nuestros-servicios">Servicios</a>
 			<a href="#clientes">Clientes</a>
 			<a href="#proyectos">Proyectos</a>
@@ -71,6 +71,11 @@
         color: var(--color-text);
 		text-shadow: none;
     }
+
+	.site-header.scrolled .site-nav a:hover,
+	.site-header.scrolled .site-nav a:focus-visible {
+		color: var(--color-primary);
+	}
 
 	.site-header.scrolled .site-nav a.nav-cta {
 		color: #fff;
