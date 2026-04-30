@@ -209,22 +209,25 @@
 		height: 2.5rem;
 		border-radius: 6px;
 		border: 1px solid rgba(255, 255, 255, 0.1);
-		color: rgba(255, 255, 255, 0.55);
+		color: #f3582c;
 		background: rgba(255, 255, 255, 0.04);
-		transition:
-			color 0.2s ease,
-			background 0.2s ease,
-			border-color 0.2s ease,
-			transform 0.2s ease;
+		transition: color 0.2s ease;
+	}
+
+	.social-link svg {
+		color: #f3582c;
+		transition: color 0.2s ease;
 	}
 
 	.social-link:hover,
 	.social-link:focus-visible {
 		color: #fff;
-		background: #f3582c;
-		border-color: #f3582c;
-		transform: translateY(-2px);
 		outline: none;
+	}
+
+	.social-link:hover svg,
+	.social-link:focus-visible svg {
+		color: #fff;
 	}
 
 	.footer-bar p {
