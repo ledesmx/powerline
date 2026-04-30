@@ -221,11 +221,18 @@ const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(init
 
   // Función para abrir/alternar el chat
   launcher?.addEventListener('click', () => {
-    // 1. Quitamos la marca de cerrado manual para que responda al clic
-    chatWindow?.classList.remove('closed-manually');
-    
-    // 2. Abrimos o cerramos la ventana
-    chatWindow?.classList.toggle('active');
+    const isOpen = chatWindow?.classList.contains('active') ||
+      (window.innerWidth >= 1024 && !chatWindow?.classList.contains('closed-manually'));
+
+    if (isOpen) {
+      chatWindow?.classList.remove('active');
+      if (window.innerWidth >= 1024) {
+        chatWindow?.classList.add('closed-manually');
+      }
+    } else {
+      chatWindow?.classList.remove('closed-manually');
+      chatWindow?.classList.add('active');
+    }
 
     // 3. Si el badge de notificación existe, lo ocultamos para siempre al primer clic
     if (badge) {
