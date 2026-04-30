@@ -4,6 +4,18 @@
 			<img src="/logo_powerline-black.svg" alt="POWERLINE MULTISERVICIOS" height="44" />
 		</a>
 
+		<button class="menu-toggle" aria-label="Abrir menú" aria-expanded="false">
+			<svg class="icon-menu" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square">
+				<line x1="3" y1="6" x2="21" y2="6"/>
+				<line x1="3" y1="12" x2="21" y2="12"/>
+				<line x1="3" y1="18" x2="21" y2="18"/>
+			</svg>
+			<svg class="icon-close" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square">
+				<line x1="4" y1="4" x2="20" y2="20"/>
+				<line x1="20" y1="4" x2="4" y2="20"/>
+			</svg>
+		</button>
+
 		<nav class="site-nav" aria-label="Principal">
 			<a href="#inicio">Inicio</a>
 			<a href="#Acercade">Nosotros</a>
@@ -17,17 +29,15 @@
 <style>
 	
 	.site-header {
-		position: fixed; /* Cambiado para que flote */
+		position: fixed;
 		top: 0;
 		z-index: 20;
 		width: 100%;
-		overflow-x: hidden;
-		background: transparent; /* Transparente al inicio */
+		background: transparent;
 		border-bottom: 1px solid transparent;
-		transition: all 0.6s ease; /* Transición suave para todo */
+		transition: all 0.6s ease;
 	}
-	
-	/* Esta clase se activará con JS al bajar */
+
 	.site-header.scrolled {
 		background: #ffffff;
 		border-bottom: 1px solid var(--color-border);
@@ -40,12 +50,13 @@
 		align-items: center;
 		justify-content: space-between;
 		gap: 1rem;
-		padding: 1.5rem clamp(1rem, 4vw, 3rem); /* Más grande al inicio */
+		padding: 1.5rem clamp(1rem, 4vw, 3rem);
 		transition: padding 0.3s ease;
+		overflow-x: clip;
 	}
 
 	.site-header.scrolled .header-inner {
-		padding: 0.8rem clamp(1rem, 4vw, 3rem); /* Más pequeña al bajar */
+		padding: 0.8rem clamp(1rem, 4vw, 3rem);
 	}
 
 	.brand {
@@ -56,16 +67,35 @@
 	}
 
 	.brand img {
-		height: 60px; /* Logo grande al inicio */
+		height: 60px;
 		width: auto;
 		display: block;
 		transition: height 0.3s ease;
 	}
 
 	.site-header.scrolled .brand img {
-		height: 40px; /* Logo pequeño al bajar */
+		height: 40px;
 	}
 
+	/* ── Hamburger button (hidden on desktop) ── */
+	.menu-toggle {
+		display: none;
+		background: none;
+		border: none;
+		cursor: pointer;
+		padding: 0.4rem;
+		color: #ffffff;
+		line-height: 0;
+		flex-shrink: 0;
+		transition: color 0.2s ease;
+		z-index: 21;
+	}
+
+	.menu-toggle .icon-close {
+		display: none;
+	}
+
+	/* ── Desktop nav ── */
     .site-header.scrolled .site-nav a {
         color: var(--color-text);
 		text-shadow: none;
@@ -85,8 +115,7 @@
 		flex-wrap: wrap;
 		justify-content: flex-end;
 		gap: 1.4rem;
-		 /* Ajuste para los enlaces cuando el fondo es transparente */
-        color: #ffffff; /* Color inicial (asumiendo fondo oscuro abajo) */
+		color: #ffffff;
 	}
 
 	.site-nav a {
@@ -98,7 +127,7 @@
 		font-weight: 600;
 		letter-spacing: 0.06em;
 		text-transform: uppercase;
-		text-shadow: 0px 1px 4px rgba(0, 0, 0, 0.8); /* Sombra para mejorar legibilidad sobre fondo oscuro */
+		text-shadow: 0px 1px 4px rgba(0, 0, 0, 0.8);
 		text-decoration: none;
 		transition: color 0.2s ease;
 	}
@@ -128,34 +157,140 @@
 		background: #d9461a;
 	}
 
-	@media (max-width: 720px) {
+	/* ── Mobile ── */
+	@media (max-width: 767px) {
+
+		.menu-toggle {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+
+		.site-header.scrolled .menu-toggle {
+			color: var(--color-text);
+		}
+
+		/* Force white header bg when menu is open */
+		.site-header.menu-open {
+			background: #ffffff;
+			border-bottom-color: transparent;
+			box-shadow: none;
+		}
+
+		.site-header.menu-open .menu-toggle {
+			color: var(--color-text);
+		}
+
+		/* Swap hamburger ↔ close icons */
+		.site-header.menu-open .menu-toggle .icon-menu {
+			display: none;
+		}
+
+		.site-header.menu-open .menu-toggle .icon-close {
+			display: block;
+		}
+
+		/* Smaller logo on mobile */
+		.brand img {
+			height: 48px;
+		}
+
+		.site-header.scrolled .brand img {
+			height: 32px;
+		}
+
 		.header-inner {
-			flex-direction: column;
-			align-items: stretch;
-			padding: 1rem;
-			border-radius: 0;
+			padding: 1rem clamp(1rem, 4vw, 2rem);
 		}
 
-		.brand {
-			justify-content: center;
+		.site-header.scrolled .header-inner {
+			padding: 0.75rem clamp(1rem, 4vw, 2rem);
 		}
 
+		/* Mobile nav: hidden drawer */
 		.site-nav {
+			display: none;
+			flex-direction: column;
+			position: absolute;
+			top: 100%;
+			left: 0;
+			width: 100%;
+			background: #ffffff;
+			padding: 0.5rem clamp(1rem, 4vw, 2rem) 1.5rem;
+			gap: 0;
+			border-bottom: 1px solid var(--color-border);
+			box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+		}
+
+		.site-header.menu-open .site-nav {
+			display: flex;
+		}
+
+		/* Mobile nav links */
+		.site-nav a {
+			color: var(--color-text) !important;
+			text-shadow: none !important;
+			padding: 0.95rem 0;
+			font-size: 0.85rem;
+			letter-spacing: 0.08em;
+			justify-content: flex-start;
+			border-bottom: 1px solid var(--color-border);
+		}
+
+		.site-nav a:hover,
+		.site-nav a:focus-visible {
+			color: var(--color-primary) !important;
+		}
+
+		.site-nav a:last-child {
+			border-bottom: none;
+		}
+
+		.site-nav a.nav-cta {
+			margin-top: 1rem;
+			padding: 0.75rem 1.1rem;
 			justify-content: center;
-			gap: 1rem;
+			color: #fff !important;
+			border-bottom: none;
+			border-radius: 4px;
+		}
+
+		.site-nav a.nav-cta:hover,
+		.site-nav a.nav-cta:focus-visible {
+			color: #fff !important;
+			background: #d9461a;
 		}
 	}
 </style>
 
 <script>
 	const header = document.querySelector('.site-header') as HTMLElement;
+	const toggle = document.querySelector('.menu-toggle') as HTMLButtonElement;
+	const navLinks = document.querySelectorAll('.site-nav a');
 
+	// Scroll → scrolled class
 	window.addEventListener('scroll', () => {
 		if (window.scrollY > 50) {
 			header.classList.add('scrolled');
 		} else {
 			header.classList.remove('scrolled');
 		}
+	});
+
+	// Hamburger toggle
+	toggle.addEventListener('click', () => {
+		const isOpen = header.classList.toggle('menu-open');
+		toggle.setAttribute('aria-expanded', String(isOpen));
+		toggle.setAttribute('aria-label', isOpen ? 'Cerrar menú' : 'Abrir menú');
+	});
+
+	// Close menu when a nav link is clicked
+	navLinks.forEach((link) => {
+		link.addEventListener('click', () => {
+			header.classList.remove('menu-open');
+			toggle.setAttribute('aria-expanded', 'false');
+			toggle.setAttribute('aria-label', 'Abrir menú');
+		});
 	});
 </script>
 
