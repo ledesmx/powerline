@@ -1,63 +1,73 @@
 <section class="contact-section" id="contacto">
-	<div class="contact-copy">
-		<p class="eyebrow">Contactanos</p>
-		<h2>Activa tu siguiente proyecto electrico con un equipo que integra tecnica, suministro y seguimiento.</h2>
-		<p>
-			Atendemos necesidades de instalacion, modernizacion, ampliacion y cumplimiento para
-			proyectos que requieren una ejecucion ordenada y una respuesta clara desde el primer
-			contacto.
-		</p>
+	<div class="contact-card">
+		<div class="contact-header">
+			<p class="eyebrow">Contactanos</p>
+			<h2>Activa tu siguiente proyecto electrico con un equipo que integra tecnica, suministro y seguimiento.</h2>
+			<p class="contact-desc">
+				Atendemos necesidades de instalacion, modernizacion, ampliacion y cumplimiento para
+				proyectos que requieren una ejecucion ordenada y una respuesta clara desde el primer
+				contacto.
+			</p>
+		</div>
 
-		<div class="contact-actions">
-			<a class="primary-action" href="#servicios">Ver servicios</a>
-			<a class="secondary-action" href="#inicio">Volver al inicio</a>
-		</div>
-	</div>
-
-	<div class="contact-panel">
-		<div class="panel-item">
-			<strong>Diagnostico tecnico</strong>
-			<p>Levantamiento inicial para detectar alcance, capacidad y necesidades del proyecto.</p>
-		</div>
-		<div class="panel-item">
-			<strong>Suministro y ejecucion</strong>
-			<p>Coordinacion de materiales, maniobras y tareas clave para avanzar con continuidad.</p>
-		</div>
-		<div class="panel-item">
-			<strong>Tramites y verificacion</strong>
-			<p>Seguimiento documental y tecnico para respaldar cumplimiento y puesta en marcha.</p>
-		</div>
+		<form class="contact-form" onsubmit="return false;">
+			<div class="form-row">
+				<div class="form-group">
+					<label for="nombre">Nombre</label>
+					<input type="text" id="nombre" name="nombre" placeholder="Tu nombre" autocomplete="given-name" />
+				</div>
+				<div class="form-group">
+					<label for="apellido">Apellido</label>
+					<input type="text" id="apellido" name="apellido" placeholder="Tu apellido" autocomplete="family-name" />
+				</div>
+			</div>
+			<div class="form-row">
+				<div class="form-group">
+					<label for="correo">Correo electrónico</label>
+					<input type="email" id="correo" name="correo" placeholder="correo@empresa.com" autocomplete="email" />
+				</div>
+				<div class="form-group">
+					<label for="empresa">Nombre de empresa</label>
+					<input type="text" id="empresa" name="empresa" placeholder="Tu empresa" autocomplete="organization" />
+				</div>
+			</div>
+			<div class="form-group full-width">
+				<label for="mensaje">¿Cómo podemos ayudarte?</label>
+				<textarea id="mensaje" name="mensaje" rows="5" placeholder="Describe tu proyecto o necesidad..."></textarea>
+			</div>
+			<div class="form-footer">
+				<button type="submit" class="btn-submit">Enviar mensaje</button>
+			</div>
+		</form>
 	</div>
 </section>
 
 <style>
 	section[id] {
-  scroll-margin-top: 45px; /* Permite un margen de vista al hacer clic en el navbar*/
+		scroll-margin-top: 45px;
 	}
 
 	.contact-section {
 		width: var(--content-width);
 		margin: 0 auto;
 		padding: 2rem 0 5rem;
-		display: grid;
-		grid-template-columns: minmax(0, 1fr) minmax(320px, 0.88fr);
-		gap: 1.5rem;
-		align-items: stretch;
 	}
 
-	.contact-copy,
-	.contact-panel {
-		padding: 2rem;
+	.contact-card {
+		padding: 3rem;
 		border-radius: 0.5rem;
 		border: 1px solid var(--color-border);
+		background:
+			radial-gradient(circle at top left, rgba(243, 88, 44, 0.08), transparent 30%),
+			var(--color-surface-elevated);
+		display: grid;
+		gap: 2.5rem;
 	}
 
-	.contact-copy {
+	.contact-header {
 		display: grid;
 		gap: 1rem;
-		background:
-			radial-gradient(circle at top left, rgba(243, 88, 44, 0.1), transparent 28%),
-			var(--color-surface-elevated);
+		max-width: 640px;
 	}
 
 	.eyebrow {
@@ -69,82 +79,107 @@
 		text-transform: uppercase;
 	}
 
-	h2,
-	p {
-		margin: 0;
-	}
-
 	h2 {
-		font-size: clamp(2rem, 3vw, 3rem);
+		margin: 0;
+		font-size: clamp(1.75rem, 2.5vw, 2.5rem);
 		line-height: 1.08;
-		max-width: 16ch;
 	}
 
-	p {
+	.contact-desc {
+		margin: 0;
 		color: var(--color-text-muted);
 		line-height: 1.75;
 	}
 
-	.contact-actions {
-		display: flex;
-		flex-wrap: wrap;
-		gap: 0.85rem;
-		padding-top: 0.5rem;
+	/* Form */
+	.contact-form {
+		display: grid;
+		gap: 1.25rem;
 	}
 
-	.primary-action,
-	.secondary-action {
+	.form-row {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 1.25rem;
+	}
+
+	.form-group {
+		display: flex;
+		flex-direction: column;
+		gap: 0.5rem;
+	}
+
+	.form-group.full-width {
+		grid-column: 1 / -1;
+	}
+
+	label {
+		font-size: 0.8rem;
+		font-weight: 700;
+		letter-spacing: 0.08em;
+		text-transform: uppercase;
+		color: var(--color-text-muted);
+	}
+
+	input,
+	textarea {
+		background: var(--color-surface);
+		border: 1px solid var(--color-border);
+		border-radius: 4px;
+		color: var(--color-text);
+		font-size: 0.95rem;
+		font-family: inherit;
+		padding: 0.75rem 1rem;
+		transition: border-color 0.2s ease;
+		outline: none;
+		resize: none;
+	}
+
+	input::placeholder,
+	textarea::placeholder {
+		color: var(--color-text-muted);
+		opacity: 0.5;
+	}
+
+	input:focus,
+	textarea:focus {
+		border-color: var(--color-primary);
+	}
+
+	.form-footer {
+		display: flex;
+		justify-content: flex-end;
+	}
+
+	.btn-submit {
 		display: inline-flex;
 		align-items: center;
 		justify-content: center;
-		padding: 0.9rem 1.35rem;
-		border-radius: 4px;
-		font-weight: 700;
-		transition:
-			transform 0.2s ease,
-			border-color 0.2s ease,
-			background-color 0.2s ease;
-	}
-
-	.primary-action {
+		padding: 0.9rem 2.5rem;
 		background: var(--color-primary);
 		color: #fff;
+		font-weight: 700;
+		font-size: 0.9rem;
+		letter-spacing: 0.08em;
+		text-transform: uppercase;
+		border: none;
+		border-radius: 4px;
+		cursor: pointer;
+		transition: transform 0.2s ease, background 0.2s ease;
+		font-family: inherit;
 	}
 
-	.secondary-action {
-		border: 1px solid var(--color-border);
-	}
-
-	.primary-action:hover,
-	.secondary-action:hover,
-	.primary-action:focus-visible,
-	.secondary-action:focus-visible {
+	.btn-submit:hover {
 		transform: translateY(-2px);
-		outline: none;
+		background: #e04a1f;
 	}
 
-	.contact-panel {
-		display: grid;
-		gap: 1rem;
-		background: var(--color-surface-muted);
-		box-shadow: var(--shadow-soft);
-	}
+	@media (max-width: 720px) {
+		.contact-card {
+			padding: 2rem 1.5rem;
+		}
 
-	.panel-item {
-		display: grid;
-		gap: 0.5rem;
-		padding: 1.1rem 1.2rem;
-		border-radius: 0.5rem;
-		background: var(--color-surface);
-		border: 1px solid var(--color-border);
-	}
-
-	.panel-item strong {
-		font-size: 1.05rem;
-	}
-
-	@media (max-width: 960px) {
-		.contact-section {
+		.form-row {
 			grid-template-columns: 1fr;
 		}
 	}
