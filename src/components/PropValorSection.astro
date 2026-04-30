@@ -30,8 +30,8 @@ const propsValor = [
 ---
 <section class="propuesta-valor">
   <div class="contenedor-grid">
-    {propsValor.map((item) => (
-      <div class="tarjeta-columna">
+    {propsValor.map((item, i) => (
+      <div class="tarjeta-columna" data-reveal data-delay={String(i + 1)}>
         <div class="icono" set:html={item.icon} />
         <h3>{item.title}</h3>
         <p>{item.desc}</p>
@@ -54,7 +54,7 @@ const propsValor = [
     width: 100%;
     /* Mantenemos las 5 columnas */
     grid-template-columns: repeat(5, 1fr);
-    background-color: #27272a; 
+    background-color: #0f1012; 
     gap: 1px; 
     border-top: 1px solid #27272a;
     border-bottom: 1px solid #27272a;

@@ -60,15 +60,15 @@ const services = [
 	<div class="services-inner">
 
 		<header class="services-header">
-			<div class="header-label">
+			<div class="header-label" data-reveal>
 				<span class="header-line" aria-hidden="true"></span>
 				<p class="eyebrow">Nuestros servicios</p>
 			</div>
 		</header>
 
 		<ul class="services-grid" role="list">
-			{services.map((service) => (
-				<li class="service-card">
+			{services.map((service, i) => (
+				<li class="service-card" data-reveal data-delay={String(i + 1)}>
 					<img
 						src={service.image}
 						alt={service.title}
