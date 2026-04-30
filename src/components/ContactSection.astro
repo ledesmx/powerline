@@ -211,3 +211,12 @@
 		}
 	}
 </style>
+
+<script>
+	const preselect = sessionStorage.getItem('preselectServicio');
+	if (preselect) {
+		const select = document.getElementById('servicio') as HTMLSelectElement | null;
+		if (select) select.value = preselect;
+		sessionStorage.removeItem('preselectServicio');
+	}
+</script>

@@ -7,6 +7,7 @@ const services = [
 		description:
 			'Planeación y ejecución experta para energizar proyectos industriales y residenciales.',
 		cta: 'Solicitar proyecto',
+		serviceValue: 'media-baja-tension',
 		image:
 			'/Ingenieria-mt-bt.jpeg',
 	},
@@ -16,6 +17,7 @@ const services = [
 		title: 'Trámites y Certificaciones',
 		description: 'Gestoría ante CFE y dictámenes UVIE bajo la NOM-001-SEDE.',
 		cta: 'Iniciar trámite',
+		serviceValue: 'tramites-certificaciones',
 		image:
 			'https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=800&q=80',
 	},
@@ -26,6 +28,7 @@ const services = [
 		description:
 			'Tienda Fisica Volt. Venta de material eléctrico, transformadores, postes y equipo de control bajo normas CFE.',
 		cta: 'Ver catálogo',
+		serviceValue: 'suministro-especializado',
 		image:
 			'/Material.png',
 	},
@@ -36,6 +39,7 @@ const services = [
 		description:
 			'Renta de grúas articuladas y fletes especializados para equipo pesado.',
 		cta: 'Solicitar servicio',
+		serviceValue: 'logistica-gruas',
 		image:
 			'/Gruas.jpeg',
 	},
@@ -45,6 +49,7 @@ const services = [
 		title: 'Inspección Técnica y Mantenimiento',
 		description: 'Escaneo de redes eléctricas con cámara termográfica por medio de drones.',
 		cta: 'Agendar inspección',
+		serviceValue: 'inspeccion-mantenimiento',
 		image:
 			'https://images.unsplash.com/photo-1508614589041-895b88991e3e?auto=format&fit=crop&w=800&q=80',
 	},
@@ -78,7 +83,7 @@ const services = [
 							<h3>{service.title}</h3>
 							<p class="card-desc">{service.description}</p>
 							<div class="card-actions">
-								<a class="card-cta" href="#contacto" aria-label={`${service.cta} — ${service.title}`}>
+							<a class="card-cta" href="#contacto" data-service={service.serviceValue} aria-label={`${service.cta} — ${service.title}`}>
 									<span>{service.cta}</span>
 									<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
 								</a>
@@ -341,3 +346,19 @@ const services = [
 		.service-card:nth-child(5) { grid-column: span 1; }
 	}
 </style>
+
+<script>
+	document.querySelectorAll<HTMLAnchorElement>('.card-cta[data-service]').forEach((link) => {
+		link.addEventListener('click', () => {
+			const value = link.dataset.service;
+			if (!value) return;
+
+			// Store for fallback (page refresh)
+			sessionStorage.setItem('preselectServicio', value);
+
+			// Update the select directly — the form is already in the DOM
+			const select = document.getElementById('servicio') as HTMLSelectElement | null;
+			if (select) select.value = value;
+		});
+	});
+</script>
