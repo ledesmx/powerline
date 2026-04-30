@@ -101,13 +101,21 @@
 	/* ─── Responsive ────────────────────────────────── */
 	@media (max-width: 960px) {
 		.hero-carousel {
-			height: clamp(380px, 55vw, 520px);
+			height: clamp(500px, 58vw, 620px);
 		}
 	}
 
 	@media (max-width: 720px) {
 		.hero-carousel {
-			height: clamp(320px, 75vw, 460px);
+			height: clamp(500px, 120vw, 680px);
+		}
+
+		.slide-content {
+			max-width: 100%;
+			align-items: center;
+			text-align: center;
+			padding: 0 clamp(1.5rem, 6vw, 2.5rem);
+			justify-content: center;
 		}
 	}
 </style>
