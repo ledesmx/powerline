@@ -331,6 +331,14 @@ const projects = [
 		.project-card:last-child {
 			grid-column: 1 / -1;
 		}
+
+		/* Sequential stagger top-to-bottom for medium layout */
+		.projects-bento .project-card:nth-child(1) { transition-delay: 0.15s; }
+		.projects-bento .project-card:nth-child(2) { transition-delay: 0.30s; }
+		.projects-bento .project-card:nth-child(3) { transition-delay: 0.45s; }
+		.projects-bento .project-card:nth-child(4) { transition-delay: 0.60s; }
+		.projects-bento .project-card:nth-child(5) { transition-delay: 0.75s; }
+		.projects-bento .project-card:nth-child(6) { transition-delay: 0.90s; }
 	}
 
 	@media (max-width: 600px) {
@@ -346,5 +354,13 @@ const projects = [
 		.project-card:last-child {
 			grid-column: auto;
 		}
+
+		/* Sequential stagger top-to-bottom for small layout */
+		.projects-bento .project-card:nth-child(1) { transition-delay: 0.15s; }
+		.projects-bento .project-card:nth-child(2) { transition-delay: 0.30s; }
+		.projects-bento .project-card:nth-child(3) { transition-delay: 0.45s; }
+		.projects-bento .project-card:nth-child(4) { transition-delay: 0.60s; }
+		.projects-bento .project-card:nth-child(5) { transition-delay: 0.75s; }
+		.projects-bento .project-card:nth-child(6) { transition-delay: 0.90s; }
 	}
 </style>
